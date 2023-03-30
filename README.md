@@ -17,7 +17,7 @@ Go have coffee while watching some tik toks while waiting for your results.
 Done! 
 - Feel free to click on [download report folder] button to download the IMEX outputs for every genome analyzed, as also the fasta, gbk and ptt used.
 - Feel free to interact with the charts, or download them in the format PNG or JPEG.
-- Feel free to analyze the tables or downwload them in csv, excel or pdf format.
+- Feel free to analyze the tables or download them in csv, excel or pdf format.
 - Feel free to save the webpage by right-click+save as: Webpage, Complete (*. htm;*html) 
 ![image](https://user-images.githubusercontent.com/101668229/228960135-5e3a4b98-c687-4724-ad0a-faa44d60469e.png)
 ![image](https://user-images.githubusercontent.com/101668229/228961192-a507d3fc-94fc-494c-980e-36d2de5c6b89.png)
