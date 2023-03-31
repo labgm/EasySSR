@@ -67,7 +67,7 @@ class ProjectData(models.Model):
     
     def get_data(project):
         cursor = connection.cursor()
-        cursor.execute(f"SELECT COUNT(*) as total, motif, iterations, cepa, lflanking, rflanking, pos_start, pos_end FROM microssatelites_projectdata WHERE project_id = {project} GROUP BY motif, iterations, cepa  ORDER BY motif")
+        cursor.execute(f"SELECT COUNT(*) as total, motif, iterations, cepa, lflanking, rflanking, pos_start, pos_end FROM microssatelites_projectdata WHERE project_id = {project} GROUP BY motif, iterations, cepa, lflanking, rflanking, pos_start, pos_end  ORDER BY motif")
         rows_cepas = cursor.fetchall()
         return rows_cepas
 

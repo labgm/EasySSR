@@ -1,0 +1,75 @@
+LOCUS       NZ_SampleDefault          99999999999 bp    DNA     
+DEFINITION  Sample,
+            genome.
+ACCESSION   NZ_SampleDefault
+VERSION     NZ_SampleDefault.1
+DBLINK      BioProject: SampleDefault
+            BioSample: SampleDefault
+            Assembly: SampleDefault.1
+KEYWORDS    RefSeq.
+SOURCE      SampleDefault
+  ORGANISM  SampleDefault
+            SampleDefault;
+            SampleDefault.
+REFERENCE   1  (bases 1 to 99999999999)
+  AUTHORS   Authors, A.,
+            Authors, B.
+  TITLE     GBK_Default
+            Test
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 99999999999)
+  AUTHORS   Authors, A.,
+            Authors, B.
+  TITLE     Direct Submission
+  JOURNAL   Unpublished,
+COMMENT     NoComments
+            
+            ##Genome-Assembly-Data-START##
+            Assembly Method           :: Unknown
+            Reference-guided Assembly :: Unknown
+            Genome Coverage           :: Unknown
+            Sequencing Technology     :: Unknown
+            ##Genome-Assembly-Data-END##
+            
+            ##Genome-Annotation-Data-START##
+            Annotation Provider               :: Unknown
+            Annotation Date                   :: Unknown
+            Annotation Pipeline               :: Unknown
+                                                 Unknown
+            Annotation Method                 :: Unknown
+                                                 Unknown
+            Annotation Software revision      :: 0
+            Features Annotated                :: Gene; CDS; rRNA; tRNA; ncRNA;
+                                                 repeat_region
+            Genes (total)                     :: 99999999
+            CDSs (total)                      :: 99999999
+            Genes (coding)                    :: 99999999
+            CDSs (with protein)               :: 99999999
+            Genes (RNA)                       :: 99999999
+            rRNAs                             :: 4, 4, 4 (5S, 16S, 23S)
+            complete rRNAs                    :: 4, 4, 4 (5S, 16S, 23S)
+            tRNAs                             :: 99999999
+            ncRNAs                            :: 99999999
+            Pseudo Genes (total)              :: 99999999
+            CDSs (without protein)            :: 29
+            Pseudo Genes (ambiguous residues) :: 0 of 29
+            Pseudo Genes (frameshifted)       :: 23 of 29
+            Pseudo Genes (incomplete)         :: 5 of 29
+            Pseudo Genes (internal stop)      :: 2 of 29
+            Pseudo Genes (multiple problems)  :: 1 of 29
+            ##Genome-Annotation-Data-END##
+            COMPLETENESS: full length.
+FEATURES             Location/Qualifiers
+     source          1..99999999999
+                     /organism="SampleDefault"
+                     /mol_type="genomic DNA"
+                     /strain="SampleDefault"
+                     /isolation_source="Unknown"
+                     /host="Unknown"
+                     /db_xref="taxon:1719"
+                     /country="Unknown"
+                     /lat_lon="19.35 N 98.67000000 W"
+                     /collection_date="Unknown"
+CONTIG      join(CP016826.1:1..99999999999)
+//
+

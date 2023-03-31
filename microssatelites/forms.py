@@ -8,21 +8,21 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Password',widget=forms.PasswordInput)
 
 class UploadFileForm(forms.Form):
-    name = forms.CharField(label='Name', required=False, max_length = 100, widget=forms.TextInput(attrs={
-                                    'placeholder':'Enter your name...',
+    name = forms.CharField(label='Project Name (*)', max_length = 100, widget=forms.TextInput(attrs={
+                                    'placeholder':'Enter your project name...',
                                     'class': 'form-control',
                                  }))
-    email = forms.CharField(label='E-mail', widget=forms.EmailInput(attrs={
+    email = forms.CharField(required=False, label='E-mail', widget=forms.EmailInput(attrs={
                                     'placeholder':'Enter your e-mail...',
                                     'class': 'form-control',
                                  }))
-    fileFasta = forms.FileField(label='Upload your Fasta files (\'.fasta\' | \'.fna\' | \'.fa\' | \'.ffn\')',
+    fileFasta = forms.FileField(label='Upload your Fasta files (*) (\'.fasta\' | \'.fna\' | \'.fa\' | \'.ffn\')',
                 widget=forms.ClearableFileInput(attrs={
                 'multiple': True,
                 'accept': '.fasta,.fna,.fa,.ffn',
                 'class': 'file-input'
                 }))
-    fileGBK = forms.FileField(label='Upload your GBK files',
+    fileGBK = forms.FileField(required=False, label='Upload your GenBank Annotation files (\'.gbk\' | \'.gb\' | \'.gbff\')',
                 widget=forms.ClearableFileInput(attrs={
                 'multiple': True,
                 'accept': '.gbk,.gbff,.gb',

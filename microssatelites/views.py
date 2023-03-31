@@ -52,14 +52,25 @@ def index(request):
 
             # TRANSFERIR OS ARQUIVOS PARAS AS SUBPASTAS
             # |---FASTAs
-            request.session['statusProcessament'] = "Upload dos Arquivos..."
+            request.session['statusProcessament'] = "Uploading files..."
             request.session.save()
+            listGBK = request.FILES.getlist('fileGBK')
+            
+            if len(listGBK) == 0:
+                useGKB = False
+            else:
+                useGKB = True
+                # |---GBKs
+                for f in request.FILES.getlist('fileGBK'):
+                    handle_uploaded_file(request, f, f'{dirproject}/{subdirectories[3]}')
+
             for f in request.FILES.getlist('fileFasta'):
                 handle_uploaded_file(request, f, f'{dirproject}/{subdirectories[2]}')
+                if useGKB == False:
+                    os.system(f'{dirproject}/{subdirectories[3]}')
+                    name = str(f).split(".f")
+                    os.system(f'cp defaultgbk.gb {dirproject}/{subdirectories[3]}/{name[0]}.gb')
 
-            # |---GBKs
-            for f in request.FILES.getlist('fileGBK'):
-                handle_uploaded_file(request, f, f'{dirproject}/{subdirectories[3]}')
             
             # request.session['totalUpload'] = True
             request.session.save()
@@ -68,7 +79,7 @@ def index(request):
             print('================================================================')
             print('=                 Convertendo Arquivos GBKtoPTT                =')
             print('================================================================')
-            request.session['statusProcessament'] = "Convertendo Arquivos GBKtoPTT..."
+            request.session['statusProcessament'] = "Converting GBK to PTT..."
             request.session.save()
 
             os.system(f'python3 microssatelites/Scripts/GBKtoPTT.py {dirproject}')
@@ -77,7 +88,7 @@ def index(request):
             print('================================================================')
             print('=                       Executando o IMEx                      =')
             print('================================================================')
-            request.session['statusProcessament'] = "Extraindo Microssatelites..."
+            request.session['statusProcessament'] = "Extracting Microsatellites..."
             request.session.save()
             paramsDefaul = request.POST['paramsRadio']
             
@@ -130,7 +141,7 @@ def index(request):
             print('================================================================')
             print('=                Processando Arquivos do IMEx                  =')
             print('================================================================')
-            request.session['statusProcessament'] = "Extraindo Dados dos Microssatelites..."
+            request.session['statusProcessament'] = "Extracting SSR Data..."
             request.session.save()
             # Ler Pasta do IMEx_OUTPUT
             files = os.listdir(f'{dirproject}/UserOutputs/OutPutProcessed/IMEx_OUTPUT')
@@ -153,7 +164,7 @@ def index(request):
                 else:
                     print('Arquivo de Entrada não encontrado!')
                 cont+=1
-            request.session['statusProcessament'] = "Finalizando..."
+            request.session['statusProcessament'] = "Finishing..."
             request.session['step03'] = True
             request.session.save()
             print('================================================================')
@@ -209,7 +220,7 @@ def handle_uploaded_file(request, f, directory):
         destination.write(chunk)
         uploaded_size += len(chunk)
         percentage = round((uploaded_size / file_size) * 100)
-        request.session['statusProcessament'] = f'Enviando arquivo {f} {percentage}%'
+        request.session['statusProcessament'] = f'Sending file {f} {percentage}%'
         request.session['filePercent'] = percentage
         request.session.save()
     destination.close()
@@ -239,7 +250,7 @@ def get_processing_status(request):
         }
     else:
         data = {
-            'statusProcessament': 'Iniciando...',
+            'statusProcessament': 'Starting...',
             'step01' : False,
             'step02' : False,
             'step03' : False,
@@ -258,7 +269,7 @@ def get_uploaded_file(request):
         }
     else:
         data = {
-            'file' : 'Waiting file...',
+            'file' : 'Analyzing your dataset...',
             'filePercent' : 0,
             'totalUpload' : False
         }
@@ -489,7 +500,7 @@ def doc2db(request, path, project):
                     ]
             repeatMotifList.append(motif)
             projectdata = ProjectData.objects.create(cepa = cepa, motif = repeatMotif, lflanking = lflanking ,  rflanking = rflanking , iterations = iterations, tractlength = tractLength,  consensus = consensus, pos_start = pos_start, pos_end = pos_end, project = project)
-            request.session['statusProcessament'] = f'Gravando Linha no Banco {cont} de {len(linhas)}'
+            request.session['statusProcessament'] = f'Processing in the Database {cont} / {len(linhas)}'
             request.session.save()
             projectdata.save()
             

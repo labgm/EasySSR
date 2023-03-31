@@ -7,7 +7,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>FastSSR - Reports</title>
+        <title>EasySSR - Reports</title>
         
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,7 +26,7 @@
             <!-- CABEÇALHO -->
             <div class="row">
                 <div class="col" style="padding-top: 10px">
-                    <h1>FastSSR Reports</h1>
+                    <h1>EasySSR Reports</h1>
                     <hr>
                 </div>
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -46,7 +46,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais de Padrões</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Total Motifs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,8 +54,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Totais de Padrões', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Totais de Padrões', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Total Motifs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Total Motifs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfeitos x Imperfeitos</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfect x Imperfect SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,8 +86,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Perfeitos x Imperfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Totais de Padrões', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Perfect x Imperfect SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Perfect x Imperfect SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais Perfeitos</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Total Perfect SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -118,8 +118,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Totais de Perfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Totais de Perfeitos', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Total Perfect SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Total Perfect SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais Imperfeitos</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Total Imperfect SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -149,8 +149,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Totais de Imperfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Totais de Imperfeitos', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Total Imperfect SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Total Imperfect SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfeitos Codificantes x Perfeitos Não-Codificantes</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfect Coding x Perfect Non-Coding SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -182,8 +182,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfeitos Codificantes x Perfeitos Não-Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfeitos Codificantes x Perfeitos Não-Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfect Coding x Perfect Non-Coding SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfect Coding x Perfect Non-Coding SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Imperfeitos Codificantes x Imperfeitos Não-Codificantes</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Imperfect Coding x Imperfect Non-Coding SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -214,8 +214,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfeitos Codificantes x Imperfeitos Não-Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfeitos Codificantes x Imperfeitos Não-Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfect Coding x Imperfect Non-Coding SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfect Coding x Imperfect Non-Coding SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -239,7 +239,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Codificantes x Não Codificantes</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Coding x Non-Coding SSRs</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -247,8 +247,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Coding x Non-Coding SSRs', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Coding x Non-Coding SSRs', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -272,7 +272,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 frequency SSR (Motifs + Iterations)</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 SSR frequency (Motifs + Iterations)</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -280,8 +280,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 frequency SSR (Motifs + Iterations)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 frequency SSR (Motifs + Iterations)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 SSR frequency (Motifs + Iterations)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 SSR frequency (Motifs + Iterations)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                         <div class="card-header py-3">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 frequency SSR (Only Motifs)</h6>
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 SSR frequency (Motifs Only)</h6>
                                 </div>
                                 <div class="col-2 text-end">
                                     <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -313,8 +313,8 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><h6 class="dropdown-header">Format</h6></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 frequency SSR (Only Motifs)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
-                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 frequency SSR (Only Motifs)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 SSR frequency (Motifs Only)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 SSR frequency (Motifs Only)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -356,7 +356,7 @@
                                         <tr>
                                             <th>Motif</th>
                                             <th>Iterations</th>
-                                            <th>Cepa</th>
+                                            <th>Sequence</th>
                                             <th>Left Flanking</th>
                                             <th>Right Flanking</th>
                                             <th>Start</th>
@@ -380,9 +380,11 @@
                                         <tr>
                                             <th>Motif</th>
                                             <th>Iterations</th>
-                                            <th>Cepa</th>
+                                            <th>Sequence</th>
                                             <th>Left Flanking</th>
                                             <th>Right Flanking</th>
+                                            <th>Start</th>
+                                            <th>End</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -413,66 +415,66 @@
                                 <table class="table table-bordered" id="StatisticTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Cepa</th>
+                                            <th>Sequence</th>
                                             <th>Total SSR</th>
-                                            <th>Total Codificante</th>
-                                            <th>Total Não Codificante</th>
+                                            <th>Total Coding</th>
+                                            <th>Total Non-Coding</th>
                                             <th>Mono</th>
                                             <th>Di</th>
                                             <th>Tri</th>
                                             <th>Tetra</th>
                                             <th>Penta</th>
                                             <th>Hexa</th>
-                                            <th>Total Perfeitos</th>
-                                            <th>Total Perfeitos Codificantes</th>
-                                            <th>Total Perfeitos Não Codificantes</th>
-                                            <th>Perfeito Mono</th>
-                                            <th>Perfeito Di</th>
-                                            <th>Perfeito Tri</th>
-                                            <th>Perfeito Tetra</th>
-                                            <th>Perfeito Penta</th>
-                                            <th>Perfeito Hexa</th>
-                                            <th>Total Imperfeitos</th>
-                                            <th>Total Imperfeitos Codificantes</th>
-                                            <th>Total Imperfeitos Não Codificantes</th>
-                                            <th>Imperfeitos Mono</th>
-                                            <th>Imperfeitos Di</th>
-                                            <th>Imperfeitos Tri</th>
-                                            <th>Imperfeitos Tetra</th>
-                                            <th>Imperfeitos Penta</th>
-                                            <th>Imperfeitos Hexa</th>
+                                            <th>Total Perfect</th>
+                                            <th>Total Perfect Coding</th>
+                                            <th>Total Perfect Non-Coding</th>
+                                            <th>Perfect Mono</th>
+                                            <th>Perfect Di</th>
+                                            <th>Perfect Tri</th>
+                                            <th>Perfect Tetra</th>
+                                            <th>Perfect Penta</th>
+                                            <th>Perfect Hexa</th>
+                                            <th>Total Imperfect</th>
+                                            <th>Total Imperfect Coding</th>
+                                            <th>Total Imperfect Non-Coding</th>
+                                            <th>Imperfect Mono</th>
+                                            <th>Imperfect Di</th>
+                                            <th>Imperfect Tri</th>
+                                            <th>Imperfect Tetra</th>
+                                            <th>Imperfect Penta</th>
+                                            <th>Imperfect Hexa</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Cepa</th>
-                                        <th>Total SSR</th>
-                                        <th>Total Codificante</th>
-                                        <th>Total Não Codificante</th>
-                                        <th>Mono</th>
-                                        <th>Di</th>
-                                        <th>Tri</th>
-                                        <th>Tetra</th>
-                                        <th>Penta</th>
-                                        <th>Hexa</th>
-                                        <th>Total Perfeitos</th>
-                                        <th>Total Perfeitos Codificantes</th>
-                                        <th>Total Perfeitos Não Codificantes</th>
-                                        <th>Perfeito Mono</th>
-                                        <th>Perfeito Di</th>
-                                        <th>Perfeito Tri</th>
-                                        <th>Perfeito Tetra</th>
-                                        <th>Perfeito Penta</th>
-                                        <th>Perfeito Hexa</th>
-                                        <th>Total Imperfeitos</th>
-                                        <th>Total Imperfeitos Codificantes</th>
-                                        <th>Total Imperfeitos Não Codificantes</th>
-                                        <th>Imperfeitos Mono</th>
-                                        <th>Imperfeitos Di</th>
-                                        <th>Imperfeitos Tri</th>
-                                        <th>Imperfeitos Tetra</th>
-                                        <th>Imperfeitos Penta</th>
-                                        <th>Imperfeitos Hexa</th>
+                                        <th>Sequence</th>
+                                            <th>Total SSR</th>
+                                            <th>Total Coding</th>
+                                            <th>Total Non-Coding</th>
+                                            <th>Mono</th>
+                                            <th>Di</th>
+                                            <th>Tri</th>
+                                            <th>Tetra</th>
+                                            <th>Penta</th>
+                                            <th>Hexa</th>
+                                            <th>Total Perfect</th>
+                                            <th>Total Perfect Coding</th>
+                                            <th>Total Perfect Non-Coding</th>
+                                            <th>Perfect Mono</th>
+                                            <th>Perfect Di</th>
+                                            <th>Perfect Tri</th>
+                                            <th>Perfect Tetra</th>
+                                            <th>Perfect Penta</th>
+                                            <th>Perfect Hexa</th>
+                                            <th>Total Imperfect</th>
+                                            <th>Total Imperfect Coding</th>
+                                            <th>Total Imperfect Non-Coding</th>
+                                            <th>Imperfect Mono</th>
+                                            <th>Imperfect Di</th>
+                                            <th>Imperfect Tri</th>
+                                            <th>Imperfect Tetra</th>
+                                            <th>Imperfect Penta</th>
+                                            <th>Imperfect Hexa</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -582,7 +584,7 @@
             const chart2 = new Chart(graphic2, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Perfeitos', 'Imperfeitos'],
+                    labels: ['Perfect', 'Imperfect'],
                     datasets: [{
                         label: 'Total',
                         data: [{{ totalDataStatistic.0.6 }}, {{ totalDataStatistic.0.7 }}],
@@ -621,7 +623,7 @@
             const chart5 = new Chart(graphic5, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Perfeitos Codificantes', 'Imperfeitos Não-Codificantes'],
+                    labels: ['Perfect Coding', 'Perfect Non-Coding'],
                     datasets: [{
                         label: 'Total',
                         data: [{{ totalDataStatistic.0.20 }}, {{ totalDataStatistic.0.21 }}],
@@ -634,7 +636,7 @@
             const chart6 = new Chart(graphic6, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Imperfeitos Codificantes', 'Imperfeitos Não-Codificantes'],
+                    labels: ['Imperfect Coding', 'Imperfect Non-Coding'],
                     datasets: [{
                         label: 'Total',
                         data: [{{ totalDataStatistic.0.22 }}, {{ totalDataStatistic.0.23 }}],
@@ -647,7 +649,7 @@
             const chart7 = new Chart(graphic7, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Codificantes', 'Não-Codificantes'],
+                    labels: ['Coding', 'Non-Coding'],
                     datasets: [{
                         label: 'Total',
                         data: [{{ totalDataStatistic.0.24 }}, {{ totalDataStatistic.0.25 }}],
@@ -693,7 +695,7 @@
                         },
                         title: {
                             display: true,
-                            text: 'Top 10 frequency SSR (Motifs + Iterations)'
+                            text: ''
                         },
                     },
                     interaction: {
@@ -746,7 +748,7 @@
                         },
                         title: {
                             display: true,
-                            text: 'Top 10 frequency SSR (Only Motifs)'
+                            text: ''
                         },
                     },
                     interaction: {
@@ -778,7 +780,13 @@
                     dom: 'Bfrtip',                
                     buttons: [
                         'copy', 'csv', 'excel', 'pdf', 'print'
-                    ]
+                    ],
+                    columnDefs: [
+                        {
+                            targets: [3, 4],
+                            searchable: false
+                        }
+                    ],
                 });
                 $('#StatisticTable').DataTable({
                     dom: 'Bfrtip',                

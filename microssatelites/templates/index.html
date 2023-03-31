@@ -9,7 +9,7 @@
 {% block pagecontent %}
   {% block pageheading %}
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+        <h1 class="h3 mb-0 text-gray-800">Welcome to EasySSR</h1>
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
@@ -43,13 +43,13 @@
                     <thead>
                       <tr>
                         <th class="align-items-center">
-                          Etapa 01
+                          Step 01
                         </th>
                         <th>
-                          Etapa 02
+                          Step 02
                         </th>
                         <th>
-                          Etapa 03
+                          Step 03
                         </th>
                       </tr>
                     </thead>
@@ -274,7 +274,11 @@
                   </table>
                     <form class="user" enctype="multipart/form-data" id="upload-form" action="{% url 'index' %}" method="POST" onsubmit="spinner()" enctype="multipart/form-data">
                       {% csrf_token %}
-                      <h1 class="h3 mb-0 text-gray-800">User Information</h1>
+                      
+                      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">User Information</h1>
+                        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Sample Dataset</a>
+                      </div>
                       <hr class="sidebar-divider my-0"><br>
                       <div class="row align-items-center">
                         <div class="col mr-6">
@@ -315,6 +319,7 @@
                                   </div>
                               </div>
                           </div>
+                          <span>* Requireds fields </span>
                         </div><br>
                         <hr class="sidebar-divider my-0"><br>
                         <div class="row align-items-center">
@@ -322,13 +327,13 @@
                             <div class="form-check">
                               <input class="form-check-input" onclick="showParams()" type="radio" value="0" name="paramsRadio" id="paramsRadio" checked>
                               <label class="form-check-label" for="paramsRadio">
-                                Default Params
+                                Default Parameters (Mono-12, Di-6, Tri-4, Tetra-3, Penta-3, Hexa-3; Imperfection max 10%)
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" onclick="showParams()" type="radio" value="1" name="paramsRadio" id="paramsRadio">
                               <label class="form-check-label" for="paramsRadio">
-                                Custom Params
+                                Custom Parameters
                               </label>
                             </div>
                           </div>
@@ -338,7 +343,7 @@
                           <div class="toast-container position-absolute p-3 top-50 start-0 translate-middle-y" style="z-index: 11">
                             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                               <div class="toast-header">
-                                <strong class="me-auto">A) Imperfection Limit/Repeat Unit (mismatches allowed)</strong>
+                                <strong class="me-auto">A) Mismatches allowed (Imperfection Limit/Repeat Unit)</strong>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                               </div>
                               <div class="toast-body">
@@ -350,7 +355,7 @@
                           <div class="row align-items-center">
                             <div class="input-group">
                               <button type="button" class="btn btn-primary" onClick="showAlert(1)"><i class="fa fa-info-circle"></i></button>
-                              <span class="input-group-text">A) Imperfection Limit/Repeat Unit (mismatches allowed)</span>
+                              <span class="input-group-text">A) Mismatches allowed (Imperfection Limit/Repeat Unit)</span>
                               <input type="text" name="impMono" placeholder="Mono" aria-label="mismatchesmono" class="form-control">
                               <input type="text" name="impDi" placeholder="Di" aria-label="mismatchesmono" class="form-control">
                               <input type="text" name="impTri" placeholder="Tri" aria-label="mismatchesmono" class="form-control">
@@ -395,7 +400,7 @@
                               <button type="button" class="btn btn-primary" onClick="showAlert(5)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
                               <span class="input-group-text">E) Generate Alignment</span>
                               <div class="form-control form-check form-switch">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" name="genAlin" type="checkbox" role="switch" id="genAlin">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" checked disabled name="genAlin" type="checkbox" role="switch" id="genAlin">
                                 <label class="form-check-label" for="genAlin">Yes</label>
                               </div>
                             </div>
@@ -417,7 +422,7 @@
                               <button type="button" class="btn btn-primary" onClick="showAlert(7)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
                               <span class="input-group-text">G) Identify Coding Regions</span>
                               <div class="form-control form-check form-switch">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" name="idCod" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" checked name="idCod" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Yes</label>
                               </div>
                             </div>
@@ -464,7 +469,7 @@
                             </button>
                           </div>
                           <div class="form-group" id="submit">
-                            <input class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="submit" value="Upload"/>
+                            <input class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="submit" value="Upload and Run"/>
                           </div>
                       </div>
                     </form>
@@ -721,7 +726,7 @@
     $("#progress_div").show();
     document.getElementById('progress_bar').style["width"]=""+filePercent+"%";
     document.getElementById('progress_bar').innerHTML=""+filePercent+"%";
-    document.getElementById('labelbar').innerHTML="File: "+file;
+    document.getElementById('labelbar').innerHTML=file;
   }
 
   function getFileUploadProcessingStatus(){

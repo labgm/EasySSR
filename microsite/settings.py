@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'easySSR',
         'USER': 'root',
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'PASSWORD': 'root',
         'HOST': '200.239.92.129',
         'PORT': '3307'
         # 'ENGINE': 'django.db.backends.sqlite3',
