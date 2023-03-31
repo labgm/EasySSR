@@ -1,0 +1,10 @@
+A) Imperfection Limit/Repeat Unit (mismatches allowed):1 1 1 2 2 2
+B) Imperfection Percentage:10 10 10 10 10 10
+C) Minimum Repeat Number:12 6 4 3 3 3
+D) Size of Flanking Sequences:15
+E) Generate Alignment:1
+F) Generate Text output:1
+G) Identify Coding Regions:1
+H) dMAX Compound SSR:100
+I) Standardization Level:3
+J) SSR types to extract:0

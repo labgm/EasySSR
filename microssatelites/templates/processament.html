@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Minimal Django FileUpload Example</title>
+    </head>
+    <body>
+      <h1 id="number"></h1>
+      <button id="btn-teste" type"buttom">Teste
+      </button>
+      <script>
+        document.getElementById('btn-teste').addEventListener('click', function(){
+          alert("Botão funcionando")
+          getProcessingStatus();
+        });
+
+        function updateProgress(number) {
+          var numberLabel = document.getElementById('number');
+
+          numberLabel.innerHTML=number;
+        }
+
+        // Função para obter o status do processamento do back-end via ajax
+        function getProcessingStatus() {
+          $.ajax({
+            type: "GET",
+            url: "/get_processing_status/",
+            success: function(data){
+              updateProgress(data.number, data.executing);
+              if (data.executing == false) {
+                setTimeout(getProcessingStatus, 1000);
+              }
+            }
+          });
+        }
+      </script>
+    </body>
+</html>

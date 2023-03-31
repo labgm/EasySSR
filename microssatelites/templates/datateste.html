@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet"> -->
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    {%block customcss %}{% endblock %}
+</head>
+
+<body id="page-top">
+{% comment %} {% for data in listaCepas %}
+    {% for dataCepa in data %}
+        {{dataCepa}}<br>
+    {% endfor %}
+{% endfor %} {% endcomment %}
+
+{% for cepa in listaCepasTotais %}
+    {{ cepa }}<br>
+    {% for listaC in listaCepas %}
+        {% comment %} {{ listaC }}<br> {% endcomment %}
+        {% for dataCepa in listaC %}
+            {% if dataCepa.1 == cepa %}
+                <li>{{dataCepa.2}}</li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+
+{% for dataLista in lista %}
+    {{dataLista.0}}<br>
+    {% for data in listaCepas %}
+        {% for dataCepa in data %}
+            {% if dataLista.0 == dataCepa.0 %}
+                <li>{{dataCepa}}</li>
+            {% endif %}
+            {% if dataLista.0 == dataCepa.0 %}
+                <li>{{dataCepa}}</li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+
+
+<table>
+    <tr>
+        <th>Motif</th>
+        <th>Total</th>
+    <tr>
+    {% for data in lista %}
+    <tr>
+        <td>{{ data.0 }}</td>
+        <td>{{ data.1 }}</td>
+    </tr>
+    {% endfor %} 
+</table>
+<table>
+    <tr>
+        <th>Motif</th>
+        <th>Cepa</th>
+        <th>Total</th>
+
+    <tr>
+    {% for data in lista %}
+        Data:{{data.0}}<br>
+        {% for dataCepa in listaCepas %}
+        TAMANHO CEPAS: {{listaCepas.0.1}}
+        {% if data.0 == dataCepa.0.0 %}
+        <tr>
+            <td>{{ dataCepa.0.0 }}</td>
+            <td>{{ dataCepa.1.1 }}</td>
+            <td>{{ dataCepa.2.2 }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+</table>
+<div class="row justify-content-center">
+    <!-- GRÁFICO 08 -->
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Ten most frequency SSR</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><h6 class="dropdown-header">Format</h6></li>
+                            <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                            <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div>
+                    <canvas id="bar"></canvas>
+                </div>
+                <hr>
+                (Colocar informações sobre o Gráfico)
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+<script>
+    const graphic8 = document.getElementById('bar');
+    const chart8 = new Chart(graphic8, {
+        type: 'bar',
+        data: {
+            labels: [
+                {% for data in lista %}
+                '{{data.0}}',
+                {% endfor %}
+            ],
+            datasets: [
+            {% for cepa in listaCepasTotais %}
+                {
+                    label: '{{cepa}}',
+                    data: [
+                        {% for listaC in listaCepas %}
+                            {% for dataCepa in listaC %}
+                                {% if dataCepa.1 == cepa %}
+                                    {{ dataCepa.2 }},
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    ],
+                    borderWidth: 1,
+                    hoverOffset: 4,
+                },
+            {% endfor %}
+            ]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend:{
+                    position: 'right'
+                },
+                title: {
+                    display: true,
+                    text: 'Ten most frequency SSR'
+                },
+            },
+            interaction: {
+            intersect: false,
+            },
+            scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true
+            }
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!--INDEX params-->
+<!-- Etapa de Parametros -->
+<h1 class="h3 mb-0 text-gray-800">Parameters</h1>
+<hr class="sidebar-divider my-0"><br>
+<div class="row align-items-center">
+  <p>Do you wish to run IMEX with the <strong>Default</strong> or set your parameters?</p>
+</div>
+<div class="row align-items-center">
+    <div class="col col-3">
+        {{ form.params}}
+    </div>
+    <br>
+</div><br>
+<div class="row align-items-center" id='paramDefault'>
+  <div class="col col-12">
+      <div class="alert alert-info" role="alert">
+        <p>
+          A) Imperfection Limit/Repeat Unit (mismatches allowed): 1 1 1 2 2 2
+        </p>
+        <p>
+          B) Imperfection Percentage: 10 10 10 10 10 10
+        </p>
+        <p>
+          C) Minimum Repeat Number: 12 6 4 3 3 3
+        </p>
+        <p>
+          D) Size of Flanking Sequences: 15
+        </p>
+        <p>
+          E) Generate Alignment: 1
+        </p>
+        <p>
+          F) Generate Text output: 1
+        </p>
+        <p>
+          G) Identify Coding Regions: 1
+        </p>
+        <p>
+          H) dMAX Compound SSR: 100
+        </p>
+        <p>
+          I) Standardization Level: 3
+        </p>
+        <p>
+          J) SSR types to extract: 0
+        </p>
+      </div>
+  </div>
+</div>
+<div class="row align-items-center">
+    <div id="custom_params" style="display: none;">
+      <!-- <div class="form-group">
+          <label for="fileFasta" class="form-label">{{ form.imp_mono.label }}</label>
+          {{ form.imp_mono }}
+      </div> -->
+      <p>Set your parameters for SSR identification with IMEx: </p>
+
+      <ol class="form-group">
+        <!-- A -->
+        <li class="">
+          Imperfection Limit/Repeat Unit (mismatches allowed)
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+              Imperfection Limit of a repeat size (Ex: Tri, Penta) is the number of point mutations (substitutions and indels) that can be allowed in a repeat unit (word) so that it can be considered as a match.
+              For example, 2 words ATGC and ATGG can be considered as matching repeat units if the imperfection limit (mismatches allowed) for tetranucleotide repeats is set as 1 or more.
+            </div>
+          </div>
+          <table class="table table-striped">
+              <thead>
+                <th>Mononucleotide</th>
+                <th>Dinucleotide</th>
+                <th>Trinucleotide</th>
+                <th>Tetranucleotide</th>
+                <th>Pentanucleotide</th>
+                <th>Hexanucleotide</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    {{ form.mismatches_mono }}
+                  </td>
+                  <td>
+                    {{ form.mismatches_di }}
+                  </td>
+                  <td>
+                    {{ form.mismatches_tri }}
+                  </td>
+                  <td>
+                    {{ form.mismatches_tetra }}
+                  </td>
+                  <td>
+                    {{ form.mismatches_penta }}
+                  </td>
+                  <td>
+                    {{ form.mismatches_hexa }}
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+        </li>
+        <!-- B -->
+        <li class="">
+          Imperfection Percentage
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+                Imperfection percentage of a microsatellite repeat tract is the percentage of mismatches in the entire repeat tract. Imperfection Percentage can be calculated as follows:
+                Imperfection  = (No. of imperfections in entire tract / Total No. of Bases in tract) * 100)")
+            </div>
+          </div>
+        </li>
+        <!-- C -->
+        <li class="">
+          Minimum Repeat Number
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+              Minimum Repeat Number of a repeat tract is the number of repeat units in a tract so that it can be considered as a valid microsatellite tract.
+                For example, if Mininum Repeat Number for mono is set to 15, means that only the mononucleotide repeat tracts that contain at least 15 nucleotides (total lenght) will be considered as a valid tract. Tracts with less than 15 won't be considered.
+            </div>
+          </div>
+        </li>
+        <!-- D -->
+        <li class="">
+          Size of Flanking Sequences
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+                The program will also extract the sequence located adjacent to each SSR identified in both left and right sides. Flanking regions are important mainly because knowing their sequences enables researchers to isolate the SSR using polymerase chain reaction, or PCR, amplification.
+                Size_FlankingSequences = input("d.1) Size of the SSR Flanking Sequences to be extracted:
+            </div>
+          </div>
+          {{ form.Size_FlankingSequences}}
+        </li>
+        <br>
+        <!-- E -->
+        <li class="">
+          Generate Alignment
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+                Alignment will help identifing imperfections
+            </div>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="generate_Alignment" id="generate_Alignment1" value="1">
+            <label class="form-check-label" for="inlineRadio2">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="generate_Alignment" id="generate_Alignment0" value="0">
+            <label class="form-check-label" for="inlineRadio1">Não</label>
+          </div>
+          <!-- {{ form.generate_Alignment }} -->
+        </li>
+        <!-- F -->
+        <li class="">
+          Generate Text output
+          {{ form.generate_TXT }}
+        </li>
+        <!-- G -->
+        <li class="">
+          Identify Coding Regions
+          {{ form.code_Regions }}
+        </li>
+        <!-- H -->
+        <li class="">
+          dMAX Compound SSR
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+                dMAX : Maximum distance between SSRs allowed to consider as a cSSR. dMAX is the maximum distance (threshold) between any two SSRs to become a potential Compound SSR. IMEx considers 2 or more SSRs as a single compound SSR if the distance between any two SSRs is less than or equal to the dMAX value set by the user.
+              (-1 = Do not extract compound SSR; 0-100 dMAX)
+            </div>
+          </div>
+          <label for="dMaxRange" class="form-label">Maximum distance</label>
+          <input type="range" class="form-range" value="-1"  min="-1" max="100" id="dMaxRangeInput">
+          <p><span id="dMaxRangeValue">0</span></p>
+        </li>
+        <li class="">
+          Standardization Level
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+              The Microsatellites and Compound Microsatellites in IMEx are standardized according to the following Levels. Higher the standardization, more sensitivity and different patterns will be considered the same SSR.
+                In L0 (level 0) standardization each pattern is unique. In L1 it is considered the circular permutation of the nucleotides in the repeat. In L2, more patterns become equivalent due to its reverse complementation followed by circular permutation. Furthermore, at L3 level in addition to all the SSRs at level 2, more motifs are considered equivalent because of complementation and circular permutation. In the full standardization mode, plenty SSR are considered equivalent as a consequence of motif reversal followed by its circular permutation.<br>
+                <strong>(0=N, 1=lvl 1, 2= lvl 2, 3=lvl 3, F = full)</strong>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          SSR types to extract
+          <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <div>
+              0=Todos, 1=Only mono, 2=Only di ... 6= Only hexa. Advanced users can also search for specific SSR motifs or patterns<br>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <br>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load bootstrap %} -->
+{% block pagecontent %}
+  {% block pageheading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">User: {{ user }} | Project: {{ project }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">User: Victor | Project: 28</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+  {% endblock %}
+  {% block rows %}
+  <!-- Custom styles for this page -->
+  <div class="row">
+      <div id="alert-box" class="not-visible col-lg-9 mb-4">
+          <div class="card bg-danger text-white shadow">
+              <div class="card-body">
+                  Danger
+                  <!-- <div class="text-white-50 small">#e74a3b</div> -->
+              </div>
+          </div>
+      </div>
+      <div id="alert-box" class="col-lg-9 mb-4">
+          <div class="card bg-success text-white shadow">
+              <div class="card-body">
+                  Processament is finished!
+                  <!-- <div class="text-white-50 small">#e74a3b</div> -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Motif List</h6>
+          </div>
+          <div class="card-body">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <!-- colar aqui -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading{{ d.0 }}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ d.0 }}" aria-expanded="false" aria-controls="flush-collapse{{ d.0 }}">
+                    {{d}}
+                  </button>
+                </h2>
+                <div id="flush-collapse{{ d.0 }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ d.0 }}" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <br>
+                    <ul>
+
+                    </ul>
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn bg-gradient-success text-white">Left Flanking <br></button>
+                      <button type="button" class="btn bg-gradient-warning text-white"> <br></button>
+                      <button type="button" class="btn bg-gradient-success text-white">Right Flanking <br></button>
+                    </div>
+                    <br>
+                    <br>
+                  </div>
+                  <br>
+                  <br>
+                </div>
+              </div>
+              <!-- { endfor } -->
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <!-- Donut Chart Estatística-->
+      <div class="col-xl-4 col-lg-5">
+          <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                  <div class="chart-pie pt-4">
+                      <canvas id="myPieChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the donut chart can be found in the
+                  <!-- <code>/js/demo/chart-pie-demo.js</code> file. -->
+              </div>
+          </div>
+      </div>
+      <!-- Tabela Estatística -->
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Estatistic Table</h6>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                          <tr>
+                              <th>Cepa</th>
+                              <th>Total SSR</th>
+                              <th>Total Codificante</th>
+                              <th>Total Não Codificante</th>
+                              <th>Mono</th>
+                              <th>Di</th>
+                              <th>Tri</th>
+                              <th>Tetra</th>
+                              <th>Penta</th>
+                              <th>Hexa</th>
+                              <th>Total Perfeitos</th>
+                              <th>Total Perfeitos Codificantes</th>
+                              <th>Total Perfeitos Não Codificantes</th>
+                              <th>Perfeito Mono</th>
+                              <th>Perfeito Di</th>
+                              <th>Perfeito Tri</th>
+                              <th>Perfeito Tetra</th>
+                              <th>Perfeito Penta</th>
+                              <th>Perfeito Hexa</th>
+                              <th>Total Imperfeitos</th>
+                              <th>Total Imperfeitos Codificantes</th>
+                              <th>Total Imperfeitos Não Codificantes</th>
+                              <th>Imperfeitos Mono</th>
+                              <th>Imperfeitos Di</th>
+                              <th>Imperfeitos Tri</th>
+                              <th>Imperfeitos Tetra</th>
+                              <th>Imperfeitos Penta</th>
+                              <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                            <th>Cepa</th>
+                            <th>Total SSR</th>
+                            <th>Total Codificante</th>
+                            <th>Total Não Codificante</th>
+                            <th>Mono</th>
+                            <th>Di</th>
+                            <th>Tri</th>
+                            <th>Tetra</th>
+                            <th>Penta</th>
+                            <th>Hexa</th>
+                            <th>Total Perfeitos</th>
+                            <th>Total Perfeitos Codificantes</th>
+                            <th>Total Perfeitos Não Codificantes</th>
+                            <th>Perfeito Mono</th>
+                            <th>Perfeito Di</th>
+                            <th>Perfeito Tri</th>
+                            <th>Perfeito Tetra</th>
+                            <th>Perfeito Penta</th>
+                            <th>Perfeito Hexa</th>
+                            <th>Total Imperfeitos</th>
+                            <th>Total Imperfeitos Codificantes</th>
+                            <th>Total Imperfeitos Não Codificantes</th>
+                            <th>Imperfeitos Mono</th>
+                            <th>Imperfeitos Di</th>
+                            <th>Imperfeitos Tri</th>
+                            <th>Imperfeitos Tetra</th>
+                            <th>Imperfeitos Penta</th>
+                            <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </tfoot>
+                      <tbody>
+                        {% for dataEstatistic in dataEstatistics %}
+                          <tr>
+                            <td>{{ dataEstatistic.cepa }}</td>
+                            <td>{{ dataEstatistic.totalSSR }}</td>
+                            <td>{{ dataEstatistic.totalCodificante }}</td>
+                            <td>{{ dataEstatistic.totalNaoCodificante }}</td>
+                            <td>{{ dataEstatistic.mono }}</td>
+                            <td>{{ dataEstatistic.di }}</td>
+                            <td>{{ dataEstatistic.tri }}</td>
+                            <td>{{ dataEstatistic.tetra }}</td>
+                            <td>{{ dataEstatistic.penta }}</td>
+                            <td>{{ dataEstatistic.hexa }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitos }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.perfeitoMono }}</td>
+                            <td>{{ dataEstatistic.perfeitoDi }}</td>
+                            <td>{{ dataEstatistic.perfeitoTri }}</td>
+                            <td>{{ dataEstatistic.perfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.perfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.perfeitoHexa }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitos }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.imperfeitoMono }}</td>
+                            <td>{{ dataEstatistic.imperfeitoDi }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTri }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.imperfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.imperfeitoHexa }}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <!-- Earnings (Monthly) Card Example -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                          </div>
+                          <div class="row no-gutters align-items-center">
+                              <div class="col-auto">
+                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                              </div>
+                              <div class="col">
+                                  <div class="progress progress-sm mr-2">
+                                      <div class="progress-bar bg-info" role="progressbar"
+                                          style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                          aria-valuemax="100"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+  </div>
+  {% endblock %}
+{% endblock %}
+<!-- Page level plugins -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+// function upload_(){
+  //   var fileInput = document.getElementById('id_fileFasta');
+  //   var files = fileInput.files;
+  //   var filesCount = fileInput.files.length;
+  //   var label = document.getElementById('labelbar');
+  //   // var progress = document.getElementById('progressbar');
+  //   console.log(files);
+
+  //   var formData = new FormData();
+  //   var count = 1;
+  //   for (var i = 0; i < filesCount; i++) {
+  //     console.log(files.item(i).name);
+  //     // progress.value = i / filesCount * 100;
+  //     formData.append('files', files.item(i));
+
+  //     var xhr = new XMLHttpRequest();
+  //     xhr.open('POST', '');
+  //     xhr.upload.addEventListener('progress', updateProgress);
+  //     xhr.addEventListener('load', completeHandler, false);
+  //     xhr.send(formData);
+      
+  //   }
+
+  // function updateProgress(event) {
+  //     var progressBar = document.getElementById('progressBar');
+  //     var loaded_n_total = document.getElementById('loaded_n_total');
+  //     var status = document.getElementById('status');
+      
+  //     // progress.value = event.loaded / event.total * 100;
+  //     loaded_n_total.innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+  //     var percent = (event.loaded / event.total) * 100;
+  //     progressBar.value = Math.round(percent);
+  //     status.innerHTML = Math.round(percent) + "% uploaded... please wait";
+  // }
+
+  // function completeHandler(event) {
+  //   var status = document.getElementById('status');
+  //   var progressBar = document.getElementById('progressBar');
+  //   // status.innerHTML = event.target.responseText;
+  //   label.innerHTML  = 'File ' + (count) + ' de ' + filesCount + ' - ' + files.item(count).name;
+  //   // progressBar.value = 0; //wil clear progress bar after successful upload
+  //   count++;
+  // }
+  // }
+  
+  // document.getElementById('upload-button').addEventListener('click', function() {
+  //   var fileInput = document.getElementById('id_fileFasta');
+  //   var files = fileInput.files;
+  //   var filesCount = fileInput.files.length;
+  //   var label = document.getElementById('labelbar');
+  //   // var progress = document.getElementById('progressbar');
+  //   console.log(files);
+
+  //   var formData = new FormData();
+    
+  //   for (var i = 0; i < filesCount; i++) {
+  //     console.log(files.item(i).name);
+  //     // progress.value = i / filesCount * 100;
+  //     label.innerHTML  = 'File ' + (i+1) + ' de ' + filesCount + ' - ' + files.item(i).name;
+  //     formData.append('files', files.item(i));
+
+  //     var xhr = new XMLHttpRequest();
+  //     xhr.open('POST', '');
+  //     xhr.upload.addEventListener('progress', updateProgress);
+  //     xhr.addEventListener('load', completeHandler, false);
+  //     xhr.send(formData);
+      
+  //   }
+
+  // function updateProgress(event) {
+  //     var progressBar = document.getElementById('progressBar');
+  //     var loaded_n_total = document.getElementById('loaded_n_total');
+  //     var status = document.getElementById('status');
+      
+  //     // progress.value = event.loaded / event.total * 100;
+  //     loaded_n_total.innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+  //     var percent = (event.loaded / event.total) * 100;
+  //     progressBar.value = Math.round(percent);
+  //     status.innerHTML = Math.round(percent) + "% uploaded... please wait";
+  // }
+
+  // function completeHandler(event) {
+  //   var status = document.getElementById('status');
+  //   var progressBar = document.getElementById('progressBar');
+  //   progressBar.value = 0; //wil clear progress bar after successful upload
+  // }
+    // //alert('Ativou botão!');
+    // var fileInput = document.getElementById('id_fileFasta');
+    // var files = fileInput.files;
+    // var filesCount = fileInput.files.length;
+    // //alert(filesCount);
+    // console.log(files);
+    // var formdata = new FormData();
+
+
+    // for (var i = 0; i < filesCount; i++) {
+    //   //salert('Entrou no for numero: '+i);
+
+    //   var file = files.item(i);
+    //   //alert(file.name+" | "+file.size+" | "+file.type);
+    //   formdata.append("file", file);
+    //   var ajax = new XMLHttpRequest();
+    //   ajax.upload.addEventListener("progress", progressHandler, false);
+    //   ajax.addEventListener("load", completeHandler, false);
+    //   ajax.addEventListener("error", errorHandler, false);
+    //   ajax.addEventListener("abort", abortHandler, false);
+    //   ajax.open("POST", "/upload/"); // http://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP
+    //   //use file_upload_parser.php from above url
+    //   ajax.send(formdata);
+    // }
+
+
+    // function progressHandler(event) {
+    //   _("loaded_n_total").innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+    //   var percent = (event.loaded / event.total) * 100;
+    //   _("progressBar").value = Math.round(percent);
+    //   _("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
+    // }
+
+    // function completeHandler(event) {
+    //   _("status").innerHTML = event.target.responseText;
+    //   _("progressBar").value = 0; //wil clear progress bar after successful upload
+    // }
+
+    // function errorHandler(event) {
+    //   _("status").innerHTML = "Upload Failed";
+    // }
+
+    // function abortHandler(event) {
+    //   _("status").innerHTML = "Upload Aborted";
+    // }
+// });
+  //   // var fileInput = document.getElementById('id_fileFasta');
+  //   // var files = fileInput.files;
+  //   // var filesCount = fileInput.files.length;
+  //   // var label = document.getElementById('labelbar');
+  //   // // var progress = document.getElementById('progressbar');
+  //   // console.log(files);
+
+  //   // var formData = new FormData();
+  //   // var numFile = 10;
+  //   // for (var i = 0; i < filesCount; i++) {
+  //   //   console.log(files.item(i).name);
+  //   //   // progress.value = i / filesCount * 100;
+  //   //   label.innerHTML  = 'File ' + (numFile) + ' de ' + filesCount + ' - ' + files.item(i).name;
+  //   //   formData.append('files', files.item(i));
+
+  //   //   var xhr = new XMLHttpRequest();
+  //   //   xhr.open('POST', '/upload/');
+  //   //   xhr.upload.addEventListener('progress', updateProgress);
+  //   //   xhr.addEventListener('load', completeHandler, false);
+  //   //   xhr.send(formData);
+      
+  //   // }
+
+  // function updateProgress(event) {
+  //     var progressBar = document.getElementById('progressBar');
+  //     var loaded_n_total = document.getElementById('loaded_n_total');
+  //     var status = document.getElementById('status');
+      
+  //     // progress.value = event.loaded / event.total * 100;
+  //     loaded_n_total.innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+  //     var percent = (event.loaded / event.total) * 100;
+  //     progressBar.value = Math.round(percent);
+  //     status.innerHTML = Math.round(percent) + "% uploaded... please wait";
+  // }
+
+  // function completeHandler(event) {
+  //   var status = document.getElementById('status');
+  //   var progressBar = document.getElementById('progressBar');
+  //   status.innerHTML = event.target.responseText;
+  //   progressBar.value = 0; //wil clear progress bar after successful upload
+  // }
+
+  <li><a class="dropdown-item" href="#">Another action</a></li>
+  <li><hr class="dropdown-divider"></li>
+  <li><a class="dropdown-item" href="#">Something else here</a></li>

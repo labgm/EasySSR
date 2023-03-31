@@ -1,0 +1,1601 @@
+<div class=" col-lg-10  col-md-12">
+
+
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/plugins/standard/file-upload.min.css">
+
+
+
+<!--Section: Docs content-->
+<section class="mdb-docs-content-pro">
+  <!--Section: Introduction-->
+  <section id="section-introduction">
+    <!-- Main title -->
+    <h2 class="h1 fw-bold">
+      File upload
+
+  <span>
+    <a href="https://mdbootstrap.com/docs/standard/pro/" role="button">
+      <i class="far fa-xs fa-gem ms-1 text-danger"></i>
+    </a>
+  </span>
+
+
+
+    </h2>
+
+    <!-- Seo title -->
+    <h1 class="h6">Bootstrap 5 File upload plugin
+</h1>
+
+    <!-- Description -->
+    <p>
+      MD Bootstrap's File Upload plugin is an extension that allows you to upload files by using
+      drag and drop functionality. Easy to use, setup and customize.
+    </p>
+
+    File upload plugin built with the latest Bootstrap 5. Many customization options like custom height, max size, confirmation message, and much more.
+
+
+    <p class="note note-light mt-3">
+      <strong>Note:</strong> Read the <strong>API</strong> tab to find all available options and
+      advanced customization
+    </p>
+
+
+
+      <span class="dpl-newmdb-docs-alert-advanced">
+
+      <div class="alert alert-danger d-flex justify-content-between" role="alert" data-mdb-color="danger">
+          <p class="mb-0"><i class="fas fa-gem me-2">
+            </i>This component requires
+            <a href="/docs/standard/pro/" class="text-reset"><strong>MDB Pro Advanced</strong>
+            </a> package.
+          </p>
+          <strong>
+            <a href="/docs/standard/pro/" class="text-reset d-none d-lg-block">Learn
+              more</a>
+          </strong>
+        </div></span>
+
+
+
+  </section>
+  <!--Section: Introduction-->
+
+  <hr class="my-5">
+
+  <!--Section: Basic example-->
+  <section id="section-basic-example">
+    <!-- Section title -->
+    <h2 class="mb-4">Basic example</h2>
+
+    <p>
+      For each input with a <code>data-mdb-file-upload="file-upload"</code> attribute you have to
+      add a wrapper with the class <code>file-upload-wrapper</code>.
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" id="input-file-now" class="file-upload-input" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example1" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example1">
+        <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_ccf2dcd6caf852da4f4b1ac00ed850da43abbda7" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_ccf2dcd6caf852da4f4b1ac00ed850da43abbda7" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>input-file-now<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Basic example-->
+
+  <hr class="my-5">
+
+  <!--Section: default msg example-->
+  <section id="section-default-msg">
+    <!-- Section title -->
+    <h2 class="mb-4">Default message example</h2>
+
+    <p>
+      By adding <code>data-mdb-default-msg</code> attribute you can set main message of the file
+      upload.
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">custom message</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" id="dnd-default-msg" class="file-upload-input" data-mdb-default-msg="custom message" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example2" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example2">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_8bb66e24680c1e840c98fa1609200645c8b90623" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_8bb66e24680c1e840c98fa1609200645c8b90623" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-custom-default-msg<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-default-msg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>custom message<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Custom default msg example-->
+
+  <hr class="my-5">
+
+  <!--Section: Custom height example-->
+  <section id="section-custom-height">
+    <!-- Section title -->
+    <h2 class="mb-4">Custom height example</h2>
+
+    <p>By adding <code>data-mdb-height</code> attribute you can set its custom height.</p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-custom-height" class="file-upload-wrapper">
+
+      <div class="file-upload" style="height: 500px;"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-height="500" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example3" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example3">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_376c9d2c69ccf106494def9425027130a96025cf" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_376c9d2c69ccf106494def9425027130a96025cf" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-custom-height<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>500<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Custom height example-->
+
+  <hr class="my-5">
+
+  <!--Section: Max size-->
+  <section id="section-max-size">
+    <!-- Section title -->
+    <h2 class="mb-4">Max size</h2>
+
+    <p>By adding <code>data-mdb-max-file-size</code> attribute you can set max size of a file.</p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-max-size" class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-max-file-size="2M" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example4" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example4">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_aba3b3962a997b007dcd7ffdb0e0d8f775e1004f" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_aba3b3962a997b007dcd7ffdb0e0d8f775e1004f" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-max-size<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-max-file-size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2M<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Max size-->
+
+  <hr class="my-5">
+
+  <!--Section: Default file-->
+  <section id="section-default-file">
+    <!-- Section title -->
+    <h2 class="mb-4">Default file</h2>
+
+    <p>
+      By adding <code>data-mdb-default-file</code> attribute you can set default file in the file
+      upload element.
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-default-file" class="file-upload-wrapper">
+
+      <div class="file-upload has-preview"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-default-file="https://mdbcdn.b-cdn.net/img/Photos/Others/images/89.webp" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"><div class="file-upload-preview"><span class="file-upload-render"><i class="fas fa-file file-upload-file-icon"></i><span class="file-upload-extension"></span></span><div class="file-upload-preview-details"><button class="btn btn-danger file-upload-remove-file-btn">Remove<i class="far fa-trash-alt ms-1"></i></button><div class="file-uplod-preview-details-inner"><p class="file-upload-file-name">89.webp</p><p class="file-upload-preview-message">Drag and drop or click to replace</p></div></div></div></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example5" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button" style="">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example5">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_1cb50dcc4fb773f0ae316baa7ae9be940dbe0556" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_1cb50dcc4fb773f0ae316baa7ae9be940dbe0556" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-default-file<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-default-file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://mdbcdn.b-cdn.net/img/Photos/Others/images/89.webp<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Default file-->
+
+  <hr class="my-5">
+
+  <!--Section: Disable-->
+  <section id="section-disable">
+    <!-- Section title -->
+    <h2 class="mb-4">Disable</h2>
+
+    <p>By adding <code>data-mdb-disabled</code> attribute you can disable the component.</p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-disable" class="file-upload-wrapper">
+
+      <div class="file-upload disabled"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-disabled="disabled" data-mdb-file-upload="file-upload" disabled="disabled" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example6" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example6">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_19c7e2615ff10af777a79cdbbdda7174475e1895" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_19c7e2615ff10af777a79cdbbdda7174475e1895" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-disable<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-disabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>disabled<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Disable-->
+
+  <hr class="my-5">
+
+  <!--Section: Accept formats-->
+  <section id="section-accept-formats">
+    <!-- Section title -->
+    <h2 class="mb-4">Accept formats</h2>
+
+    <p>By adding <code>data-mdb-accepted-extensions</code> you can set allowed file types.</p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-accept-formats" class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-accepted-extensions="image/*, .pdf" data-mdb-file-upload="file-upload" accept="image/*, .pdf"><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example7" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example7">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_261e6eea37c0e178560538124706ae7ecbce63ce" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_261e6eea37c0e178560538124706ae7ecbce63ce" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-accept-formats<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-accepted-extensions</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image/*, .pdf<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Accept formats-->
+
+  <hr class="my-5">
+
+  <!--Section: Disabled remove button-->
+  <section id="section-disabled-remove-button">
+    <!-- Section title -->
+    <h2 class="mb-4">Disabled remove button</h2>
+
+    <p>
+      By adding <code>data-mdb-disabled-remove-btn</code> attribute you can remove "Remove button".
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div id="dnd-desabled-btn" class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-disabled-remove-btn="true" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example8" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example8">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_1269d96e8e758a4c2053f052704636123210161a" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_1269d96e8e758a4c2053f052704636123210161a" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-desabled-btn<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-disabled-remove-btn</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Disabled remove button-->
+
+  <hr class="my-5">
+
+  <!--Section: Multiple files-->
+  <section id="section-multiple-files">
+    <!-- Section title -->
+    <h2 class="mb-4">Multiple files</h2>
+
+    <p>
+      By adding <code>data-mdb-multiple</code> attribute you can allow to upload more than single
+      file.
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input id="dnd-multiple-files" type="file" class="file-upload-input has-multiple" data-mdb-multiple="true" data-mdb-file-upload="file-upload" accept="" multiple="true"><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example9" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example9">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_fd29e54ba8d2cb946d4d4c8f91801343a1a72f7d" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_fd29e54ba8d2cb946d4d4c8f91801343a1a72f7d" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-multiple-files<span class="token punctuation">"</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-multiple</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Multiple files-->
+
+  <hr class="my-5">
+
+  <!--Section: Multiple with files limit-->
+  <section id="subsection-multiple-files-with-file-limit">
+    <!-- Section title -->
+    <h2 class="mb-4">Multiple with files limit</h2>
+
+    <p>
+      By adding <code>data-mdb-max-file-quantity</code> attribute you can set limit of uploaded
+      files.
+    </p>
+
+    <!--Section: Demo-->
+      <section class="pb-4">
+  <div class="bg-white border rounded-5">
+
+           <section class="p-4 d-flex justify-content-center w-100">
+      <div class="file-upload-wrapper">
+
+      <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input id="dnd-multiple-with-file-limit" type="file" class="file-upload-input has-multiple" data-mdb-multiple="true" data-mdb-max-file-quantity="3" data-mdb-file-upload="file-upload" accept="" multiple="true"><div class="file-upload-previews"></div></div></div>
+    </section>
+
+
+
+    <div class="p-4 text-center border-top mobile-hidden">
+      <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example10" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+        <i class="fas fa-code me-md-2"></i>
+        <span class="d-none d-md-inline-block">
+          Show code
+        </span>
+      </a>
+
+
+        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+          <i class="fas fa-file-code me-md-2 pe-none"></i>
+          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+            Edit in sandbox
+          </span>
+        </a>
+
+    </div>
+
+
+  </div>
+</section>
+
+    <!--Section: Demo-->
+
+    <!--Section: Code-->
+    <section>
+            <section class="collapse" id="example10">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="mdb-pro-example mobile-hidden">
+
+
+  <div class="docs-pills border mobile-hidden">
+    <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+      <ul class="nav nav-pills p-2">
+
+
+
+
+          <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_e992d139d7b5214e4e959bad0ba78d4aa8b25711" role="tab">HTML</a></li>
+
+
+
+
+      </ul>
+    </div>
+    <div class="tab-content">
+
+
+
+
+
+
+<div class="tab-pane fade  active show " id="mdb_e992d139d7b5214e4e959bad0ba78d4aa8b25711" role="tabpanel">
+    <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-multiple-with-file-limit<span class="token punctuation">"</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-multiple</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-max-file-quantity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span>
+    <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+ </div> </section>
+    </section>
+    <!--Section: Code-->
+  </section>
+  <!--Section: Multiple with files limit-->
+
+  <hr class="my-5">
+
+  <!-- Section: Related resources -->
+  <section class="" id="section-related-resources">
+
+    <style>
+      .btn-tag {
+        background-color: #ECEFF1;
+        text-transform: capitalize !important;
+        margin-bottom: 10px;
+        box-shadow: none;
+      }
+
+      .btn-tag:hover {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+      }
+
+    </style>
+
+    <h2>Related resources</h2>
+
+      <!--Chips with links-->
+      <div class="justify-content-start text-start w-100 my-5">
+
+          <a href="https://mdbootstrap.com/docs/standard/content-styles/icons/" class="btn btn-tag btn-rounded" data-mdb-close="true">
+          Icons</a>
+
+          <a href="https://mdbootstrap.com/docs/standard/content-styles/hover-effects/" class="btn btn-tag btn-rounded" data-mdb-close="true">
+          Hover effect</a>
+
+          <a href="https://mdbootstrap.com/docs/standard/components/buttons/" class="btn btn-tag btn-rounded" data-mdb-close="true">
+          Buttons</a>
+
+          <a href="https://mdbootstrap.com/docs/standard/plugins/drag-and-drop/" class="btn btn-tag btn-rounded" data-mdb-close="true">
+          Drag and drop</a>
+
+      </div>
+  </section>
+  <!-- Section: Related resources -->
+</section>
+
+                    </div>
+
+
+
+
+
+
+Organizada
+
+<div class=" col-lg-10  col-md-12">
+  <link href="{% static 'css/file-upload.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/plugins/standard/file-upload.min.css"> -->
+
+  <!--Section: Docs content-->
+  <section class="mdb-docs-content-pro">
+    <!--Section: Introduction-->
+    <section id="section-introduction">
+      <!-- Main title -->
+      <h2 class="h1 fw-bold">
+        File uploadDDDDD
+        <span>
+          <a href="https://mdbootstrap.com/docs/standard/pro/" role="button">
+            <i class="far fa-xs fa-gem ms-1 text-danger"></i>
+          </a>
+        </span>
+      </h2>
+
+      <!-- Seo title -->
+      <h1 class="h6">Bootstrap 5 File upload plugin
+  </h1>
+
+      <!-- Description -->
+      <p>
+        MD Bootstrap's File Upload plugin is an extension that allows you to upload files by using
+        drag and drop functionality. Easy to use, setup and customize.
+      </p>
+
+      File upload plugin built with the latest Bootstrap 5. Many customization options like custom height, max size, confirmation message, and much more.
+
+
+      <p class="note note-light mt-3">
+        <strong>Note:</strong> Read the <strong>API</strong> tab to find all available options and
+        advanced customization
+      </p>
+
+
+
+        <span class="dpl-newmdb-docs-alert-advanced">
+
+        <div class="alert alert-danger d-flex justify-content-between" role="alert" data-mdb-color="danger">
+            <p class="mb-0"><i class="fas fa-gem me-2">
+              </i>This component requires
+              <a href="/docs/standard/pro/" class="text-reset"><strong>MDB Pro Advanced</strong>
+              </a> package.
+            </p>
+            <strong>
+              <a href="/docs/standard/pro/" class="text-reset d-none d-lg-block">Learn
+                more</a>
+            </strong>
+          </div></span>
+
+
+
+    </section>
+    <!--Section: Introduction-->
+
+    <hr class="my-5">
+
+    <!--Section: Basic example-->
+    <section id="section-basic-example">
+      <!-- Section title -->
+      <h2 class="mb-4">Basic example</h2>
+
+      <p>
+        For each input with a <code>data-mdb-file-upload="file-upload"</code> attribute you have to
+        add a wrapper with the class <code>file-upload-wrapper</code>.
+      </p>
+
+      <!--Section: Demo-->
+        <section class="pb-4">
+    <div class="bg-white border rounded-5">
+
+             <section class="p-4 d-flex justify-content-center w-100">
+        <div class="file-upload-wrapper">
+
+        <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" id="input-file-now" class="file-upload-input" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"></div></div></div>
+      </section>
+
+
+
+      <div class="p-4 text-center border-top mobile-hidden">
+        <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example1" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button">
+          <i class="fas fa-code me-md-2"></i>
+          <span class="d-none d-md-inline-block">
+            Show code
+          </span>
+        </a>
+
+
+          <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+            <i class="fas fa-file-code me-md-2 pe-none"></i>
+            <span class="d-none d-md-inline-block export-to-snippet pe-none">
+              Edit in sandbox
+            </span>
+          </a>
+
+      </div>
+
+
+    </div>
+  </section>
+
+      <!--Section: Demo-->
+
+      <!--Section: Code-->
+      <section>
+              <section class="collapse" id="example1">
+          <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mdb-pro-example mobile-hidden">
+
+
+    <div class="docs-pills border mobile-hidden">
+      <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+        <ul class="nav nav-pills p-2">
+
+
+
+
+            <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_ccf2dcd6caf852da4f4b1ac00ed850da43abbda7" role="tab">HTML</a></li>
+
+
+
+
+        </ul>
+      </div>
+      <div class="tab-content">
+
+
+
+
+
+
+  <div class="tab-pane fade  active show " id="mdb_ccf2dcd6caf852da4f4b1ac00ed850da43abbda7" role="tabpanel">
+      <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+      <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>input-file-now<span class="token punctuation">"</span></span>
+      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+      <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+  </div>
+
+
+      </div>
+    </div>
+
+
+    </div>
+
+
+
+   </div> </section>
+      </section>
+      <!--Section: Code-->
+    </section>
+    <!--Section: Basic example-->
+
+    <hr class="my-5">
+
+    <!--Section: Default file-->
+    <section id="section-default-file">
+      <!-- Section title -->
+      <h2 class="mb-4">Default file</h2>
+
+      <p>
+        By adding <code>data-mdb-default-file</code> attribute you can set default file in the file
+        upload element.
+      </p>
+
+      <!--Section: Demo-->
+        <section class="pb-4">
+    <div class="bg-white border rounded-5">
+
+             <section class="p-4 d-flex justify-content-center w-100">
+        <div id="dnd-default-file" class="file-upload-wrapper">
+
+        <div class="file-upload has-preview"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-default-file="https://mdbcdn.b-cdn.net/img/Photos/Others/images/89.webp" data-mdb-file-upload="file-upload" accept=""><div class="file-upload-previews"><div class="file-upload-preview"><span class="file-upload-render"><i class="fas fa-file file-upload-file-icon"></i><span class="file-upload-extension"></span></span><div class="file-upload-preview-details"><button class="btn btn-danger file-upload-remove-file-btn">Remove<i class="far fa-trash-alt ms-1"></i></button><div class="file-uplod-preview-details-inner"><p class="file-upload-file-name">89.webp</p><p class="file-upload-preview-message">Drag and drop or click to replace</p></div></div></div></div></div></div>
+      </section>
+
+
+
+      <div class="p-4 text-center border-top mobile-hidden">
+        <a class="btn btn-link px-3" data-mdb-toggle="modal" role="button" aria-expanded="false" aria-controls="example5" data-ripple-color="hsl(0, 0%, 67%)" data-mdb-target="#apiRestrictedModal" type="button" style="">
+          <i class="fas fa-code me-md-2"></i>
+          <span class="d-none d-md-inline-block">
+            Show code
+          </span>
+        </a>
+
+
+          <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+            <i class="fas fa-file-code me-md-2 pe-none"></i>
+            <span class="d-none d-md-inline-block export-to-snippet pe-none">
+              Edit in sandbox
+            </span>
+          </a>
+
+      </div>
+
+
+    </div>
+  </section>
+
+      <!--Section: Demo-->
+
+      <!--Section: Code-->
+      <section>
+              <section class="collapse" id="example5">
+            <div class="pb-4">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mdb-pro-example mobile-hidden">
+
+
+    <div class="docs-pills border mobile-hidden">
+      <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+        <ul class="nav nav-pills p-2">
+
+
+
+
+            <li class="nav-item"><a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_1cb50dcc4fb773f0ae316baa7ae9be940dbe0556" role="tab">HTML</a></li>
+
+
+
+
+        </ul>
+      </div>
+      <div class="tab-content">
+
+
+
+
+
+
+  <div class="tab-pane fade  active show " id="mdb_1cb50dcc4fb773f0ae316baa7ae9be940dbe0556" role="tabpanel">
+      <div class="code-toolbar"><pre class="grey lighten-3 mb-0 line-numbers  language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-default-file<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+      <span class="token attr-name">data-mdb-default-file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://mdbcdn.b-cdn.net/img/Photos/Others/images/89.webp<span class="token punctuation">"</span></span>
+      <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div></div>
+  </div>
+
+
+      </div>
+    </div>
+
+
+    </div>
+
+
+
+   </div> </section>
+      </section>
+      <!--Section: Code-->
+    </section>
+    <!--Section: Default file-->
+
+    <hr class="my-5">
+
+    <!--Section: Accept formats-->
+    <section id="section-accept-formats">
+      <!-- Section title -->
+      <h2 class="mb-4">Accept formats</h2>
+
+      <p>By adding <code>data-mdb-accepted-extensions</code> you can set allowed file types.</p>
+
+      <!--Section: Demo-->
+      <section class="pb-4">
+        <div class="bg-white border rounded-5">
+          <section class="p-4 d-flex justify-content-center w-100">
+            <div id="dnd-accept-formats" class="file-upload-wrapper">
+              <div class="file-upload">
+                <div class="file-upload-message">
+                  <i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i>
+                  <p class="file-upload-default-message">Drag and drop a file here or click</p>
+                  <p class="file-upload-main-error"></p>
+                </div>
+                <div class="file-upload-mask">
+                </div>
+                <ul class="file-upload-errors">
+                </ul>
+                <input type="file" class="file-upload-input" data-mdb-accepted-extensions="image/*, .pdf" data-mdb-file-upload="file-upload" accept="image/*, .pdf">
+                <div class="file-upload-previews">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="p-4 text-center border-top mobile-hidden">
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-success btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Section: Demo-->
+
+      <!--Section: Code-->
+      <section>
+        <section class="collapse" id="example7">
+          <div class="pb-4">
+            <div class="mdb-pro-example mobile-hidden">
+              <div class="docs-pills border mobile-hidden">
+                <div class="d-flex justify-content-between py-2" style="padding-left: .6rem;">
+                  <ul class="nav nav-pills p-2">
+                      <li class="nav-item">
+                        <a class="nav-link  active show " data-mdb-toggle="tab" href="#mdb_261e6eea37c0e178560538124706ae7ecbce63ce" role="tab">HTML</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="tab-content">
+                  <div class="tab-pane fade active show " id="mdb_261e6eea37c0e178560538124706ae7ecbce63ce" role="tabpanel">
+                    <div class="code-toolbar">
+                      <pre class="grey lighten-3 mb-0 line-numbers  language-html">
+                        <code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dnd-accept-formats<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag">
+                          <span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+                          <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span>
+                          <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload-input<span class="token punctuation">"</span></span>
+                          <span class="token attr-name">data-mdb-accepted-extensions</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image/*, .pdf<span class="token punctuation">"</span></span>
+                          <span class="token attr-name">data-mdb-file-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file-upload<span class="token punctuation">"</span></span>
+                          <span class="token punctuation">/&gt;</span>
+                        </span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </span>
+                        </code>
+                      </pre><div class="toolbar"><div class="toolbar-item"><button class="btn-copy-code btn btn-sm" data-mdb-ripple-color="dark" data-mdb-ripple-unbound="true">Copy</button></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!--Section: Code-->
+    </section>
+    <!--Section: Accept formats-->
+  </section>
+</div>

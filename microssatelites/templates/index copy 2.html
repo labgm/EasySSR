@@ -1,0 +1,379 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{%block customcss%}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block pagecontent %}
+  {% block pageheading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+    </div>
+  {% endblock %}
+  {% block rows %}
+      <div class="row">
+          <div id="alert-box" class="col-lg-9 mb-4">
+              <div class="card bg-danger text-white shadow" style="display: none">
+                  <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <!-- Card Form -->
+          <div class="col-xl-12 col-md-12 mb-12">
+              <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <form class="user" enctype="multipart/form-data" id="upload-form" action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <h1 class="h3 mb-0 text-gray-800">User Information</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.name.label }}</label>
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.email.label }}</label>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                      </div><br>
+                      <h1 class="h3 mb-0 text-gray-800">Input Files</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <div class="col mr-2">
+                            <!-- Input FASTA -->
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.fileFasta.label }}</label><br>
+                                <div class="file-drop-area col col-xl-6">
+                                  <span class="choose-file-button">Choose files</span>
+                                  <span class="file-message">or drag and drop files here</span>
+                                  {{ form.fileFasta }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mr-2">
+                            <!-- Input fileGBK -->
+                            <div class="form-group">
+                                <label for="fileGBK" class="form-label">{{ form.fileGBK.label }}</label><br>
+                                <div class="file-drop-area">
+                                  <span class="choose-file-button">Choose files</span>
+                                  <span class="file-message">or drag and drop files here</span>
+                                  {{ form.fileGBK }}
+                                </div>
+                            </div>
+                        </div>
+                      </div><br>
+
+                      <!-- Etapa de Parametros -->
+                      <h1 class="h3 mb-0 text-gray-800">Parameters</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <p>Do you wish to run IMEX with the <strong>Default</strong> or set your parameters?</p>
+                      </div>
+                      <div class="row align-items-center">
+                          <div class="col col-3">
+                              {{ form.params}}
+                          </div>
+                          <br>
+                      </div><br>
+                      <div class="row align-items-center" id='paramDefault'>
+                        <div class="col col-12">
+                            <div class="alert alert-info" role="alert">
+                              <p>
+                                A) Imperfection Limit/Repeat Unit (mismatches allowed): 1 1 1 2 2 2
+                              </p>
+                              <p>
+                                B) Imperfection Percentage: 10 10 10 10 10 10
+                              </p>
+                              <p>
+                                C) Minimum Repeat Number: 12 6 4 3 3 3
+                              </p>
+                              <p>
+                                D) Size of Flanking Sequences: 15
+                              </p>
+                              <p>
+                                E) Generate Alignment: 1
+                              </p>
+                              <p>
+                                F) Generate Text output: 1
+                              </p>
+                              <p>
+                                G) Identify Coding Regions: 1
+                              </p>
+                              <p>
+                                H) dMAX Compound SSR: 100
+                              </p>
+                              <p>
+                                I) Standardization Level: 3
+                              </p>
+                              <p>
+                                J) SSR types to extract: 0
+                              </p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                          <div id="custom_params" style="display: none;">
+                            <!-- <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.imp_mono.label }}</label>
+                                {{ form.imp_mono }}
+                            </div> -->
+                            <p>Set your parameters for SSR identification with IMEx: </p>
+
+                            <ol class="form-group">
+                              <!-- A -->
+                              <li class="">
+                                Imperfection Limit/Repeat Unit (mismatches allowed)
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                    Imperfection Limit of a repeat size (Ex: Tri, Penta) is the number of point mutations (substitutions and indels) that can be allowed in a repeat unit (word) so that it can be considered as a match.
+                                    For example, 2 words ATGC and ATGG can be considered as matching repeat units if the imperfection limit (mismatches allowed) for tetranucleotide repeats is set as 1 or more.
+                                  </div>
+                                </div>
+                                <table class="table table-striped">
+                                    <thead>
+                                      <th>Mononucleotide</th>
+                                      <th>Dinucleotide</th>
+                                      <th>Trinucleotide</th>
+                                      <th>Tetranucleotide</th>
+                                      <th>Pentanucleotide</th>
+                                      <th>Hexanucleotide</th>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          {{ form.mismatches_mono }}
+                                        </td>
+                                        <td>
+                                          {{ form.mismatches_di }}
+                                        </td>
+                                        <td>
+                                          {{ form.mismatches_tri }}
+                                        </td>
+                                        <td>
+                                          {{ form.mismatches_tetra }}
+                                        </td>
+                                        <td>
+                                          {{ form.mismatches_penta }}
+                                        </td>
+                                        <td>
+                                          {{ form.mismatches_hexa }}
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                              </li>
+                              <!-- B -->
+                              <li class="">
+                                Imperfection Percentage
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                  	Imperfection percentage of a microsatellite repeat tract is the percentage of mismatches in the entire repeat tract. Imperfection Percentage can be calculated as follows:
+                                  	Imperfection  = (No. of imperfections in entire tract / Total No. of Bases in tract) * 100)")
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- C -->
+                              <li class="">
+                                Minimum Repeat Number
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                    Minimum Repeat Number of a repeat tract is the number of repeat units in a tract so that it can be considered as a valid microsatellite tract.
+                                  	For example, if Mininum Repeat Number for mono is set to 15, means that only the mononucleotide repeat tracts that contain at least 15 nucleotides (total lenght) will be considered as a valid tract. Tracts with less than 15 won't be considered.
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- D -->
+                              <li class="">
+                                Size of Flanking Sequences
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                  	The program will also extract the sequence located adjacent to each SSR identified in both left and right sides. Flanking regions are important mainly because knowing their sequences enables researchers to isolate the SSR using polymerase chain reaction, or PCR, amplification.
+                                  	Size_FlankingSequences = input("d.1) Size of the SSR Flanking Sequences to be extracted:
+                                  </div>
+                                </div>
+                                {{ form.Size_FlankingSequences}}
+                              </li>
+                              <br>
+                              <!-- E -->
+                              <li class="">
+                                Generate Alignment
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                  	Alignment will help identifing imperfections
+                                  </div>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="generate_Alignment" id="generate_Alignment1" value="1">
+                                  <label class="form-check-label" for="inlineRadio2">Sim</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="generate_Alignment" id="generate_Alignment0" value="0">
+                                  <label class="form-check-label" for="inlineRadio1">Não</label>
+                                </div>
+                                <!-- {{ form.generate_Alignment }} -->
+                              </li>
+                              <!-- F -->
+                              <li class="">
+                                Generate Text output
+                                {{ form.generate_TXT }}
+                              </li>
+                              <!-- G -->
+                              <li class="">
+                                Identify Coding Regions
+                                {{ form.code_Regions }}
+                              </li>
+                              <!-- H -->
+                              <li class="">
+                                dMAX Compound SSR
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                  	dMAX : Maximum distance between SSRs allowed to consider as a cSSR. dMAX is the maximum distance (threshold) between any two SSRs to become a potential Compound SSR. IMEx considers 2 or more SSRs as a single compound SSR if the distance between any two SSRs is less than or equal to the dMAX value set by the user.
+                                    (-1 = Do not extract compound SSR; 0-100 dMAX)
+                                  </div>
+                                </div>
+                                <label for="dMaxRange" class="form-label">Maximum distance</label>
+                                <input type="range" class="form-range" value="-1"  min="-1" max="100" id="dMaxRangeInput">
+                                <p><span id="dMaxRangeValue">0</span></p>
+                              </li>
+                              <li class="">
+                                Standardization Level
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                    The Microsatellites and Compound Microsatellites in IMEx are standardized according to the following Levels. Higher the standardization, more sensitivity and different patterns will be considered the same SSR.
+                                  	In L0 (level 0) standardization each pattern is unique. In L1 it is considered the circular permutation of the nucleotides in the repeat. In L2, more patterns become equivalent due to its reverse complementation followed by circular permutation. Furthermore, at L3 level in addition to all the SSRs at level 2, more motifs are considered equivalent because of complementation and circular permutation. In the full standardization mode, plenty SSR are considered equivalent as a consequence of motif reversal followed by its circular permutation.<br>
+                                  	<strong>(0=N, 1=lvl 1, 2= lvl 2, 3=lvl 3, F = full)</strong>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="">
+                                SSR types to extract
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                  </svg>
+                                  <div>
+                                    0=Todos, 1=Only mono, 2=Only di ... 6= Only hexa. Advanced users can also search for specific SSR motifs or patterns<br>
+                                  </div>
+                                </div>
+                              </li>
+                            </ol>
+                            <br>
+                          </div>
+                      </div>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                          <!-- Progress Bar -->
+                          <p>Etapa 1/4</p>
+                          <div class="progress" id="spinner" style="display: none">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                          </div>
+                          <div id="progress-box" class="">
+                              <div class="row no-gutters align-items-center">
+                                  <div class="col-auto">
+                                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                  </div>
+                                  <div class="col">
+                                      <div class="progress progress-sm mr-2">
+                                          <div class="progress-bar bg-info" role="progressbar"
+                                              style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                              aria-valuemax="100"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <input class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="submit" value="Upload"/>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  {% endblock %}
+{% endblock %}
+
+{% block customjs %}
+<script type="text/javascript">
+  function exibir_ocultar(){
+    var valor = $("#params").val();
+
+    if(valor == 1){
+         $("#custom_params").show();
+         $("#paramDefault").hide();
+     } else {
+         $("#custom_params").hide();
+         $("#paramDefault").show();
+     };
+
+
+
+     // Resultado em tempo Real do Range
+     let $range2 = document.querySelector('#dMaxRangeInput'),
+         $value2 = document.querySelector('#dMaxRangeValue'),
+         $radio = document.querySelector('input[name="generate_Alignment"]:checked').value;
+         alert(radio);
+
+     $radio.addEventListener('input', function(){
+       alert(this.value);
+     });
+
+     $range2.addEventListener('input', function() {
+         $value2.textContent = this.value;
+     });
+
+
+
+     // selector = document.
+     // element = $(selector);
+
+     // alert(selector);
+
+  $(document).on('change', '.file-input', function() {
+    var filesCount = $(this)[0].files.length;
+
+    var textbox = $(this).prev();
+
+    if (filesCount === 1) {
+      var fileName = $(this).val().split('\\').pop();
+      textbox.text(fileName);
+    } else {
+      textbox.text(filesCount + ' files selected');
+    }
+  });
+</script>
+{% endblock %}

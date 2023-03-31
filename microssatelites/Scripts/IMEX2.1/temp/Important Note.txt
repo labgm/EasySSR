@@ -1,0 +1,4 @@
+Files in this directory are created & deleted during the execution of IMEx.
+In case the program is interrupted, some files may accumulate in this directory.
+
+You may safely delete any files found in this directory.

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<br>
+<u><b>Results</b></u>
+<br>
+Right-click to save the file.
+<br>
+<?php
+$uploaddir = 'upload/';
+//$upFasta = $uploaddir . basename($_FILES['fastaFile']['name']);
+//$upAnnot = $uploaddir . basename($_FILES['annotFile']['name']);
+$upGBK = $uploaddir . basename($_FILES['gbkFile']['name']);
+$upGBK = str_replace(" ", "_", $upGBK); //Replace spaces in filename with underscores
+
+if (move_uploaded_file($_FILES['gbkFile']['tmp_name'], $upGBK)) {
+	$name = basename($_FILES['gbkFile']['name']);
+	$name = str_replace(" ", "_", $name); // Replace spaces with underscores
+	$ID = substr($name,0,strrpos($name,'.'));
+        passthru("./rm_cont_m.pl {$upGBK} > {$upGBK}.temp"); #Added by Andre Sept. 7, 2009
+        passthru("mv {$upGBK}.temp {$upGBK}"); #Added by Andre Sept. 7, 2009 
+	passthru("chmod 644 {$upGBK}");
+	passthru("./GBKtoPTT.pl < {$upGBK} > results/{$ID}.ptt");
+	passthru("chmod 644 results/{$ID}.ptt");
+	echo "<a href=results/{$ID}.ptt>{$ID}.ptt</a> - your PTT file.";
+	echo "<br>";
+	echo "<b>Note</b>: This file will be deleted at midnight.";
+} else {
+	echo "GBK file uploading failed.\n";
+}
+?>
+<br><br>
+Please help us improve this tool by sending any questions or comments to <b>Andre.Villegas[at]oahpp.ca</b>.
+</body>
+</html>

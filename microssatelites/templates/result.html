@@ -1,0 +1,792 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FastSSR - Reports</title>
+        
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    </head>
+    <body>
+        {% comment %} 
+        >-------| Conteúdo da Página |-------<
+        {% endcomment %}
+        <div class="container">
+            <!-- CABEÇALHO -->
+            <div class="row">
+                <div class="col" style="padding-top: 10px">
+                    <h1>FastSSR Reports</h1>
+                    <hr>
+                </div>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Project: {{project.pk}}</h1>
+                    <a href="{% url 'download_folder' project.pk %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Report Folder</a>
+                </div>
+                <p class="text-muted">Time: {{ time_exec }}</p>
+            </div>
+
+            <!-- ÁREA DOS GRÁFICOS -->
+            <div class="row justify-content-center">
+                <h3><small class="text-muted">Graphics</small></h3>
+                <!-- GRÁFICO 01 - Totais de Padrões-->
+                <div class="col-3 md-col-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais de Padrões</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Totais de Padrões', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart1, 'Totais de Padrões', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="totalsChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO 02 - Perfeitos x Imperfeitos-->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfeitos x Imperfeitos</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Perfeitos x Imperfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart2, 'Totais de Padrões', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="perfxImperfChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO 03 - Totais de Perfeitos-->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais Perfeitos</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Totais de Perfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart3, 'Totais de Perfeitos', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="totalsPerfChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- GRÁFICO 04 - Totais de Imperfeitos-->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Totais Imperfeitos</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Totais de Imperfeitos', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart4, 'Totais de Imperfeitos', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="totalsImperfChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- GRÁFICO 05 - Perfeitos Codificantes x Perfeitos Não-Codificantes-->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Perfeitos Codificantes x Perfeitos Não-Codificantes</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfeitos Codificantes x Perfeitos Não-Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart5, 'Perfeitos Codificantes x Perfeitos Não-Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="perfCodxPerfNCodChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO 06 - Imperfeitos Codificantes x Imperfeitos Não-Codificantes -->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Imperfeitos Codificantes x Imperfeitos Não-Codificantes</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfeitos Codificantes x Imperfeitos Não-Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart6, 'Imperfeitos Codificantes x Imperfeitos Não-Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                {% comment %} <canvas id="imperfCodxImperfNCodChart"></canvas> {% endcomment %}
+                                <canvas id="imperfCodxImperfNCodChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO 07 - Codificantes x Não Codificantes-->
+                <div class="col-3">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Codificantes x Não Codificantes</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart7, 'Codificantes x Não Codificantes', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="codxNCodChart"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- GRÁFICO 08 -->
+                <div class="col-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 frequency SSR (Motifs + Iterations)</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 frequency SSR (Motifs + Iterations)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart8, 'Top 10 frequency SSR (Motifs + Iterations)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="bar"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- GRÁFICO 09 -->
+                <div class="col-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Top 10 frequency SSR (Only Motifs)</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><h6 class="dropdown-header">Format</h6></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 frequency SSR (Only Motifs)', 'png')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;PNG</button></li>
+                                        <li><button class="dropdown-item" onClick="downloadGraphic(chart9, 'Top 10 frequency SSR (Only Motifs)', 'jpeg')"><i class="fa fa-file-image" aria-hidden="true"></i>&nbsp;JPEG</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <canvas id="bar2"></canvas>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- ÁREA DA TABELA DE DOS DADOS -->
+            <div class="row">
+                <h3><small class="text-muted">Tables</small></h3>
+                <br><br>
+                <div class="col">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Data table</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <!-- Área Botão de Download -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div>
+                                <table id="dataTable" class="display nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Motif</th>
+                                            <th>Iterations</th>
+                                            <th>Cepa</th>
+                                            <th>Left Flanking</th>
+                                            <th>Right Flanking</th>
+                                            <th>Start</th>
+                                            <th>End</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in projectdata %}
+                                        <tr>
+                                            <td>{{ data.1 }}</td>
+                                            <td>{{ data.2 }}</td>
+                                            <td>{{ data.3 }}</td>
+                                            <td>{{ data.4 }}</td>
+                                            <td>{{ data.5 }}</td>
+                                            <td>{{ data.6 }}</td>
+                                            <td>{{ data.7 }}</td>
+                                        </tr>
+                                        {% endfor %}       
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Motif</th>
+                                            <th>Iterations</th>
+                                            <th>Cepa</th>
+                                            <th>Left Flanking</th>
+                                            <th>Right Flanking</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÁREA DA TABELA DE DADOS ESTATÍSTICOS -->
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h6 class="font-weight-bold text-primary" style="margin-bottom: 0;">Statistic Table</h6>
+                                </div>
+                                <div class="col-2 text-end">
+                                    <!-- Área do Botão de Download -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="StatisticTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Cepa</th>
+                                            <th>Total SSR</th>
+                                            <th>Total Codificante</th>
+                                            <th>Total Não Codificante</th>
+                                            <th>Mono</th>
+                                            <th>Di</th>
+                                            <th>Tri</th>
+                                            <th>Tetra</th>
+                                            <th>Penta</th>
+                                            <th>Hexa</th>
+                                            <th>Total Perfeitos</th>
+                                            <th>Total Perfeitos Codificantes</th>
+                                            <th>Total Perfeitos Não Codificantes</th>
+                                            <th>Perfeito Mono</th>
+                                            <th>Perfeito Di</th>
+                                            <th>Perfeito Tri</th>
+                                            <th>Perfeito Tetra</th>
+                                            <th>Perfeito Penta</th>
+                                            <th>Perfeito Hexa</th>
+                                            <th>Total Imperfeitos</th>
+                                            <th>Total Imperfeitos Codificantes</th>
+                                            <th>Total Imperfeitos Não Codificantes</th>
+                                            <th>Imperfeitos Mono</th>
+                                            <th>Imperfeitos Di</th>
+                                            <th>Imperfeitos Tri</th>
+                                            <th>Imperfeitos Tetra</th>
+                                            <th>Imperfeitos Penta</th>
+                                            <th>Imperfeitos Hexa</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Cepa</th>
+                                        <th>Total SSR</th>
+                                        <th>Total Codificante</th>
+                                        <th>Total Não Codificante</th>
+                                        <th>Mono</th>
+                                        <th>Di</th>
+                                        <th>Tri</th>
+                                        <th>Tetra</th>
+                                        <th>Penta</th>
+                                        <th>Hexa</th>
+                                        <th>Total Perfeitos</th>
+                                        <th>Total Perfeitos Codificantes</th>
+                                        <th>Total Perfeitos Não Codificantes</th>
+                                        <th>Perfeito Mono</th>
+                                        <th>Perfeito Di</th>
+                                        <th>Perfeito Tri</th>
+                                        <th>Perfeito Tetra</th>
+                                        <th>Perfeito Penta</th>
+                                        <th>Perfeito Hexa</th>
+                                        <th>Total Imperfeitos</th>
+                                        <th>Total Imperfeitos Codificantes</th>
+                                        <th>Total Imperfeitos Não Codificantes</th>
+                                        <th>Imperfeitos Mono</th>
+                                        <th>Imperfeitos Di</th>
+                                        <th>Imperfeitos Tri</th>
+                                        <th>Imperfeitos Tetra</th>
+                                        <th>Imperfeitos Penta</th>
+                                        <th>Imperfeitos Hexa</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for dataStatistic in dataStatistics %}
+                                        <tr>
+                                        <td>{{ dataStatistic.cepa }}</td>
+                                        <td>{{ dataStatistic.totalSSR }}</td>
+                                        <td>{{ dataStatistic.totalCodificante }}</td>
+                                        <td>{{ dataStatistic.totalNaoCodificante }}</td>
+                                        <td>{{ dataStatistic.mono }}</td>
+                                        <td>{{ dataStatistic.di }}</td>
+                                        <td>{{ dataStatistic.tri }}</td>
+                                        <td>{{ dataStatistic.tetra }}</td>
+                                        <td>{{ dataStatistic.penta }}</td>
+                                        <td>{{ dataStatistic.hexa }}</td>
+                                        <td>{{ dataStatistic.totalPerfeitos }}</td>
+                                        <td>{{ dataStatistic.totalPerfeitosCodificantes }}</td>
+                                        <td>{{ dataStatistic.totalPerfeitosNaoCodificantes }}</td>
+                                        <td>{{ dataStatistic.perfeitoMono }}</td>
+                                        <td>{{ dataStatistic.perfeitoDi }}</td>
+                                        <td>{{ dataStatistic.perfeitoTri }}</td>
+                                        <td>{{ dataStatistic.perfeitoTetra }}</td>
+                                        <td>{{ dataStatistic.perfeitoPenta }}</td>
+                                        <td>{{ dataStatistic.perfeitoHexa }}</td>
+                                        <td>{{ dataStatistic.totalImperfeitos }}</td>
+                                        <td>{{ dataStatistic.totalImperfeitosCodificantes }}</td>
+                                        <td>{{ dataStatistic.totalImperfeitosNaoCodificantes }}</td>
+                                        <td>{{ dataStatistic.imperfeitoMono }}</td>
+                                        <td>{{ dataStatistic.imperfeitoDi }}</td>
+                                        <td>{{ dataStatistic.imperfeitoTri }}</td>
+                                        <td>{{ dataStatistic.imperfeitoTetra }}</td>
+                                        <td>{{ dataStatistic.imperfeitoPenta }}</td>
+                                        <td>{{ dataStatistic.imperfeitoHexa }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap Bundle with Popper -->
+        {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script> {% endcomment %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-exports.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+        <!-- Data Tables -->
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+        <script src="{% static 'js/canvas2svg.js'%}"></script>
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+        
+        <!-- Script Gráficos -->
+        <script>
+            Chart.defaults.backgroundColor = '#9BD0F5';
+            {% comment %} Chart.defaults.borderColor = '#36A2EB'; {% endcomment %}
+            {% comment %} Chart.defaults.color = '#FFFFFF'; {% endcomment %}
+            const graphic1 = document.getElementById('totalsChart');  
+            const graphic2 = document.getElementById('perfxImperfChart');  
+            const graphic3 = document.getElementById('totalsPerfChart');  
+            const graphic4 = document.getElementById('totalsImperfChart');  
+            const graphic5 = document.getElementById('perfCodxPerfNCodChart');  
+            const graphic6 = document.getElementById('imperfCodxImperfNCodChart');  
+            const graphic7 = document.getElementById('codxNCodChart');
+            const graphic8 = document.getElementById('bar');
+            const graphic9 = document.getElementById('bar2');
+
+            
+            const chart1 = new Chart(graphic1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mono', 'Di', 'Tri', 'Tetra', 'Penta', 'Hexa'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.0 }}, {{ totalDataStatistic.0.1 }}, {{ totalDataStatistic.0.2 }}, {{ totalDataStatistic.0.3 }}, {{ totalDataStatistic.0.4 }}, {{ totalDataStatistic.0.5 }}],
+                        /* muda as cores
+                        backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)'
+                        ],*/
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    /*scales: {
+                        y: {
+                        beginAtZero: true,                        
+                        }
+                    }*/
+                }
+            });
+        
+            const chart2 = new Chart(graphic2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Perfeitos', 'Imperfeitos'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.6 }}, {{ totalDataStatistic.0.7 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+
+            const chart3 = new Chart(graphic3, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mono', 'Di', 'Tri', 'Tetra', 'Penta', 'Hexa'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.8 }}, {{ totalDataStatistic.0.9 }}, {{ totalDataStatistic.0.10 }}, {{ totalDataStatistic.0.11 }}, {{ totalDataStatistic.0.12 }}, {{ totalDataStatistic.0.13 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+
+            const chart4 = new Chart(graphic4, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mono', 'Di', 'Tri', 'Tetra', 'Penta', 'Hexa'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.14 }}, {{ totalDataStatistic.0.15 }}, {{ totalDataStatistic.0.16 }}, {{ totalDataStatistic.0.17 }}, {{ totalDataStatistic.0.18 }}, {{ totalDataStatistic.0.19 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+
+            const chart5 = new Chart(graphic5, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Perfeitos Codificantes', 'Imperfeitos Não-Codificantes'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.20 }}, {{ totalDataStatistic.0.21 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+            
+            const chart6 = new Chart(graphic6, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Imperfeitos Codificantes', 'Imperfeitos Não-Codificantes'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.22 }}, {{ totalDataStatistic.0.23 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+
+            const chart7 = new Chart(graphic7, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Codificantes', 'Não-Codificantes'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [{{ totalDataStatistic.0.24 }}, {{ totalDataStatistic.0.25 }}],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+            });
+    
+            const chart8 = new Chart(graphic8, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        {% for data in lista %}
+                        '{{data.0}}-{{data.2}}',
+                        {% endfor %}
+                    ],
+                    datasets: [
+                    {% for cepa in listaCepasTotais %}
+                        {
+                            label: '{{cepa}}',
+                            data: [
+                                {% for listaC in listaCepas %}
+                                    {% for dataCepa in listaC %}
+                                        {% if dataCepa.1 == cepa %}
+                                            {{ dataCepa.2 }},
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 4,
+                        },
+                    {% endfor %}
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend:{
+                            position: 'right'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Top 10 frequency SSR (Motifs + Iterations)'
+                        },
+                    },
+                    interaction: {
+                    intersect: false,
+                    },
+                    scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                    }
+                }
+            });
+
+            const chart9 = new Chart(graphic9, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        {% for data in lista2 %}
+                        '{{data.0}}',
+                        {% endfor %}
+                    ],
+                    datasets: [
+                    {% for cepa in listaCepasTotais2 %}
+                        {
+                            label: '{{cepa}}',
+                            data: [
+                                {% for listaC in listaCepas2 %}
+                                    {% for dataCepa in listaC %}
+                                        {% if dataCepa.1 == cepa %}
+                                            {{ dataCepa.2 }},
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 4,
+                        },
+                    {% endfor %}
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend:{
+                            position: 'right'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Top 10 frequency SSR (Only Motifs)'
+                        },
+                    },
+                    interaction: {
+                    intersect: false,
+                    },
+                    scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                    }
+                }
+            });
+
+            function downloadGraphic(chart, nome, format){
+                var uri = chart.toBase64Image('image/'+format, 1);               
+                var link = document.createElement("a");
+                link.download = nome+'.'+format;
+                link.href = uri;
+                link.click();
+            }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $('#dataTable').DataTable({
+                    dom: 'Bfrtip',                
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+                $('#StatisticTable').DataTable({
+                    dom: 'Bfrtip',                
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+            });
+        </script>        
+    </body>
+</html>

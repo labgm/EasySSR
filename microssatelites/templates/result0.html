@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load bootstrap %} -->
+{% block pagecontent %}
+  {% block pageheading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">User: {{ user.name }} | Project: {{ project.pk }}</h1>
+        <!-- <h1 class="h3 mb-0 text-gray-800">User: Victor | Project: 28</h1> -->
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+  {% endblock %}
+  {% block rows %}
+  <!-- Custom styles for this page -->
+  <div class="row">
+      <div id="alert-box" class="not-visible col-lg-9 mb-4">
+          <div class="card bg-danger text-white shadow">
+              <div class="card-body">
+                  Danger
+                  <!-- <div class="text-white-50 small">#e74a3b</div> -->
+              </div>
+          </div>
+      </div>
+      <div id="alert-box" class="col-lg-9 mb-4">
+          <div class="card bg-success text-white shadow">
+              <div class="card-body">
+                  Processament is finished!
+                  <!-- <div class="text-white-50 small">#e74a3b</div> -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Motif List</h6>
+          </div>
+          <div class="card-body">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <!-- {{ projectcepas }} -->
+              <!-- {% for data in projectdatas %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading{{ data.pk }}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ data.pk }}" aria-expanded="false" aria-controls="flush-collapse{{ data.pk }}">
+                    {{ data.motif }}
+                  </button>
+                </h2>
+                <div id="flush-collapse{{ data.pk }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ data.pk }}" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn bg-gradient-success text-white">Left Flanking <br>{{data.lflanking}}</button>
+                      <button type="button" class="btn bg-gradient-warning text-white"> <br>{{data.motif}}</button>
+                      <button type="button" class="btn bg-gradient-success text-white">Right Flanking <br>{{data.rflanking}}</button>
+                    </div>
+                    <br>
+                    <br>
+                    <h3 class="h3 mb-0 text-gray-800">Cepa(s):</h3>
+                    <ul>----------------------- -->
+                      <!-- {% for motif in projectdatas %}
+                        {% if  data.motif == motif.motif %}
+                          <li>True</li> -->
+                          <!-- <li>{{projectcepas.cepa}}</li> -->
+                        <!-- {% endif %}
+                      {% endfor %} -->
+                    <!-- </ul>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+              </div> -->
+              <!-- <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading{{ data.pk }}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ data.pk }}" aria-expanded="false" aria-controls="flush-collapse{{ data.pk }}">
+                    {{data.motif}}
+                  </button>
+                </h2>
+                <div id="flush-collapse{{ data.pk }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ data.pk }}" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn bg-gradient-success text-white">Left Flanking <br>{{data.lflanking}}</button>
+                      <button type="button" class="btn bg-gradient-warning text-white"> <br>{{data.motif}}</button>
+                      <button type="button" class="btn bg-gradient-success text-white">Right Flanking <br>{{data.rflanking}}</button>
+                    </div>
+                    <br>
+                    <p>{{data.cepa}}</p>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+              </div> -->
+              <!-- <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading{{ data.0 }}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ data.0 }}" aria-expanded="false" aria-controls="flush-collapse{{ data.0 }}">
+                    {{data.2}}
+                  </button>
+                </h2>
+                <div id="flush-collapse{{ data.0 }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ data.0 }}" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+
+                  </div>
+                  <br>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn bg-gradient-success text-white">Left Flanking <br>{{data.3}}</button>
+                    <button type="button" class="btn bg-gradient-warning text-white"> <br>{{data.2}}</button>
+                    <button type="button" class="btn bg-gradient-success text-white">Right Flanking <br>{{data.4}}</button>
+                  </div>
+                  <br>
+                  <p>{{data}}</p>
+                  <br>
+                  <br>
+                </div>
+              </div> -->
+              <!-- {% endfor %} -->
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <!-- Donut Chart Estatística-->
+      <div class="col-xl-4 col-lg-5">
+          <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                  <div class="chart-pie pt-4">
+                      <canvas id="myPieChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the donut chart can be found in the
+                  <!-- <code>/js/demo/chart-pie-demo.js</code> file. -->
+              </div>
+          </div>
+      </div>
+      <!-- Tabela Estatística -->
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Estatistic Table</h6>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                          <tr>
+                              <th>Cepa</th>
+                              <th>Total SSR</th>
+                              <th>Total Codificante</th>
+                              <th>Total Não Codificante</th>
+                              <th>Mono</th>
+                              <th>Di</th>
+                              <th>Tri</th>
+                              <th>Tetra</th>
+                              <th>Penta</th>
+                              <th>Hexa</th>
+                              <th>Total Perfeitos</th>
+                              <th>Total Perfeitos Codificantes</th>
+                              <th>Total Perfeitos Não Codificantes</th>
+                              <th>Perfeito Mono</th>
+                              <th>Perfeito Di</th>
+                              <th>Perfeito Tri</th>
+                              <th>Perfeito Tetra</th>
+                              <th>Perfeito Penta</th>
+                              <th>Perfeito Hexa</th>
+                              <th>Total Imperfeitos</th>
+                              <th>Total Imperfeitos Codificantes</th>
+                              <th>Total Imperfeitos Não Codificantes</th>
+                              <th>Imperfeitos Mono</th>
+                              <th>Imperfeitos Di</th>
+                              <th>Imperfeitos Tri</th>
+                              <th>Imperfeitos Tetra</th>
+                              <th>Imperfeitos Penta</th>
+                              <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                            <th>Cepa</th>
+                            <th>Total SSR</th>
+                            <th>Total Codificante</th>
+                            <th>Total Não Codificante</th>
+                            <th>Mono</th>
+                            <th>Di</th>
+                            <th>Tri</th>
+                            <th>Tetra</th>
+                            <th>Penta</th>
+                            <th>Hexa</th>
+                            <th>Total Perfeitos</th>
+                            <th>Total Perfeitos Codificantes</th>
+                            <th>Total Perfeitos Não Codificantes</th>
+                            <th>Perfeito Mono</th>
+                            <th>Perfeito Di</th>
+                            <th>Perfeito Tri</th>
+                            <th>Perfeito Tetra</th>
+                            <th>Perfeito Penta</th>
+                            <th>Perfeito Hexa</th>
+                            <th>Total Imperfeitos</th>
+                            <th>Total Imperfeitos Codificantes</th>
+                            <th>Total Imperfeitos Não Codificantes</th>
+                            <th>Imperfeitos Mono</th>
+                            <th>Imperfeitos Di</th>
+                            <th>Imperfeitos Tri</th>
+                            <th>Imperfeitos Tetra</th>
+                            <th>Imperfeitos Penta</th>
+                            <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </tfoot>
+                      <!-- <tbody>
+                        {% for dataEstatistic in dataEstatistics %}
+                          <tr>
+                            <td>{{ dataEstatistic.cepa }}</td>
+                            <td>{{ dataEstatistic.totalSSR }}</td>
+                            <td>{{ dataEstatistic.totalCodificante }}</td>
+                            <td>{{ dataEstatistic.totalNaoCodificante }}</td>
+                            <td>{{ dataEstatistic.mono }}</td>
+                            <td>{{ dataEstatistic.di }}</td>
+                            <td>{{ dataEstatistic.tri }}</td>
+                            <td>{{ dataEstatistic.tetra }}</td>
+                            <td>{{ dataEstatistic.penta }}</td>
+                            <td>{{ dataEstatistic.hexa }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitos }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.perfeitoMono }}</td>
+                            <td>{{ dataEstatistic.perfeitoDi }}</td>
+                            <td>{{ dataEstatistic.perfeitoTri }}</td>
+                            <td>{{ dataEstatistic.perfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.perfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.perfeitoHexa }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitos }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.imperfeitoMono }}</td>
+                            <td>{{ dataEstatistic.imperfeitoDi }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTri }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.imperfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.imperfeitoHexa }}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody> -->
+                  </table>
+              </div>
+          </div>
+      </div>
+      <!-- Earnings (Monthly) Card Example -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                          </div>
+                          <div class="row no-gutters align-items-center">
+                              <div class="col-auto">
+                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                              </div>
+                              <div class="col">
+                                  <div class="progress progress-sm mr-2">
+                                      <div class="progress-bar bg-info" role="progressbar"
+                                          style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                          aria-valuemax="100"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+  </div>
+  {% endblock %}
+{% endblock %}
+<!-- Page level plugins -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>

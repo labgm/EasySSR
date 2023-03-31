@@ -1,0 +1,14 @@
+checkpoint a:
+    output: touch("a.out")
+
+def input_for_b(*wildcards):
+    return checkpoints.a.get().output
+
+rule b:
+    input:
+        input_for_b
+    run:
+        print(f'input is: {input}')
+
+rule c:
+    input:

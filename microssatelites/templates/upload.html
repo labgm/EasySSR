@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Minimal Django FileUpload Example</title>
+    </head>
+    <body>
+      <form action="{% url 'list' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.name.label }}</p>
+        <p>{{ form.name }}</p>
+        <p>{{ form.email.label }}</p>
+        <p>{{ form.email }}</p>
+        <p>{{ form.fileFasta.label }}</p>
+        <p>
+          {{ form.fileFasta }}
+        </p>
+        <p>{{ form.fileGBK.label }}</p>
+        <p>
+          {{ form.fileGBK }}
+        </p>
+
+        <p><input type="submit" value="Upload" /></p>
+      </form>
+    </body>
+</html>

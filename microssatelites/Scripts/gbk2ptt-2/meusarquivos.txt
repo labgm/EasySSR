@@ -1,0 +1,7 @@
+CD.gbff
+CG.gbff
+CU.gbff
+EC.gbff
+MT.gbff
+NB.gbff
+RH.gbff

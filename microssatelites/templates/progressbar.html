@@ -1,0 +1,71 @@
+<template id="progress-template">
+    <input type="file" id="file-input" multiple>
+    <button id="upload-button">Upload</button>
+    <div class="progress-container">
+      <span class="filename"></span>
+      <progress value="0" max="100"></progress>
+    </div>
+</template>
+
+<script>
+    document.getElementById('upload-button').addEventListener('click', function() {
+    var fileInput = document.getElementById('file-input');
+    var files = fileInput.files;
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+
+        var formData = new FormData();
+        formData.append('file', file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/upload/');
+
+        var progressContainer = document.querySelector('#progress-template').content.cloneNode(true);
+        progressContainer.querySelector('.filename').textContent = file.name;
+        var progress = progressContainer.querySelector('progress');
+
+        xhr.upload.addEventListener('progress', function(event) {
+        progress.value = event.loaded / event.total * 100;
+        });
+
+        xhr.onloadend = function() {
+        if (xhr.status === 200) {
+            console.log('File uploaded successfully.');
+        } else {
+            console.error('File upload failed.');
+        }
+        };
+
+        xhr.send(formData);
+        document.body.appendChild(progressContainer);
+    }
+});
+
+</script>
+
+<!-- <progress id="upload-progress" value="0" max="100"></progress>
+
+<input type="file" id="file-input">
+<button id="upload-button">Upload</button>
+
+<script>
+    document.getElementById('upload-button').addEventListener('click', function() {
+        var fileInput = document.getElementById('file-input');
+        var file = fileInput.files[0];
+        console.log(file);
+
+        var formData = new FormData();
+        formData.append('file', file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/upload/');
+        xhr.upload.addEventListener('progress', updateProgress);
+        xhr.send(formData);
+    });
+
+    function updateProgress(event) {
+        var progress = document.getElementById('upload-progress');
+        progress.value = event.loaded / event.total * 100;
+    }
+</script> -->

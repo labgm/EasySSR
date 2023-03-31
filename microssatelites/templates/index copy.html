@@ -1,0 +1,149 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{%block customcss%}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block pagecontent %}
+  {% block pageheading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+    </div>
+  {% endblock %}
+  {% block rows %}
+      <div class="row">
+          <div id="alert-box" class="col-lg-9 mb-4">
+              <div class="card bg-danger text-white shadow" style="display: none">
+                  <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <!-- Card Form -->
+          <div class="col-xl-12 col-md-12 mb-12">
+              <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <form class="user" enctype="multipart/form-data" id="upload-form" action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <h1 class="h3 mb-0 text-gray-800">User Information</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.name.label }}</label>
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.email.label }}</label>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                      </div><br>
+                      <h1 class="h3 mb-0 text-gray-800">Input Files</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <div class="col mr-2">
+                            <!-- Input FASTA -->
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.fileFasta.label }}</label><br>
+                                <div class="file-drop-area col col-xl-6">
+                                  <span class="choose-file-button">Choose files</span>
+                                  <span class="file-message">or drag and drop files here</span>
+                                  {{ form.fileFasta }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mr-2">
+                            <!-- Input fileGBK -->
+                            <div class="form-group">
+                                <label for="fileGBK" class="form-label">{{ form.fileGBK.label }}</label><br>
+                                <div class="file-drop-area">
+                                  <span class="choose-file-button">Choose files</span>
+                                  <span class="file-message">or drag and drop files here</span>
+                                  {{ form.fileGBK }}
+                                </div>
+                            </div>
+                        </div>
+                      </div><br>
+
+                      
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="form-group">
+                        <input class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="submit" value="Upload"/>
+                      </div>
+                    </form>
+                    <div class="row align-items-center">
+                      <!-- Progress Bar -->
+                      <p>Etapa 1/4</p>
+                      <div class="progress" id="spinner" style="display: none">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                      </div>
+                      <br>
+                    </div>
+              </div>
+          </div>
+      </div>
+  {% endblock %}
+{% endblock %}
+
+{% block customjs %}
+<script type="text/javascript">
+  $(document).on('change', '.file-input', function() {
+    var filesCount = $(this)[0].files.length;
+
+    var textbox = $(this).prev();
+
+    if (filesCount === 1) {
+      var fileName = $(this).val().split('\\').pop();
+      textbox.text(fileName);
+    } else {
+      textbox.text(filesCount + ' files selected');
+    }
+  });
+</script>
+
+<script>
+  function exibir_ocultar(){
+    var valor = $("#params").val();
+
+    if(valor == 1){
+         $("#custom_params").show();
+         $("#paramDefault").hide();
+     } else {
+         $("#custom_params").hide();
+         $("#paramDefault").show();
+     };
+
+
+
+     // Resultado em tempo Real do Range
+     let $range2 = document.querySelector('#dMaxRangeInput'),
+         $value2 = document.querySelector('#dMaxRangeValue'),
+         $radio = document.querySelector('input[name="generate_Alignment"]:checked').value;
+         alert(radio);
+
+     $radio.addEventListener('input', function(){
+       alert(this.value);
+     });
+
+     $range2.addEventListener('input', function() {
+         $value2.textContent = this.value;
+     });
+
+
+
+     // selector = document.
+     // element = $(selector);
+
+     // alert(selector);
+</script>
+{% endblock %}

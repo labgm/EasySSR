@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load django_tables2 %}
+
+{% block pagecontent %}
+  {% block rows %}
+  <div class="row">
+      <!-- Tabela Estatística -->
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Estatistic Table</h6>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive">
+                  {% render_table table %}
+                  <!-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                          <tr>
+                              <th>Cepa</th>
+                              <th>Total SSR</th>
+                              <th>Total Codificante</th>
+                              <th>Total Não Codificante</th>
+                              <th>Mono</th>
+                              <th>Di</th>
+                              <th>Tri</th>
+                              <th>Tetra</th>
+                              <th>Penta</th>
+                              <th>Hexa</th>
+                              <th>Total Perfeitos</th>
+                              <th>Total Perfeitos Codificantes</th>
+                              <th>Total Perfeitos Não Codificantes</th>
+                              <th>Perfeito Mono</th>
+                              <th>Perfeito Di</th>
+                              <th>Perfeito Tri</th>
+                              <th>Perfeito Tetra</th>
+                              <th>Perfeito Penta</th>
+                              <th>Perfeito Hexa</th>
+                              <th>Total Imperfeitos</th>
+                              <th>Total Imperfeitos Codificantes</th>
+                              <th>Total Imperfeitos Não Codificantes</th>
+                              <th>Imperfeitos Mono</th>
+                              <th>Imperfeitos Di</th>
+                              <th>Imperfeitos Tri</th>
+                              <th>Imperfeitos Tetra</th>
+                              <th>Imperfeitos Penta</th>
+                              <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                            <th>Cepa</th>
+                            <th>Total SSR</th>
+                            <th>Total Codificante</th>
+                            <th>Total Não Codificante</th>
+                            <th>Mono</th>
+                            <th>Di</th>
+                            <th>Tri</th>
+                            <th>Tetra</th>
+                            <th>Penta</th>
+                            <th>Hexa</th>
+                            <th>Total Perfeitos</th>
+                            <th>Total Perfeitos Codificantes</th>
+                            <th>Total Perfeitos Não Codificantes</th>
+                            <th>Perfeito Mono</th>
+                            <th>Perfeito Di</th>
+                            <th>Perfeito Tri</th>
+                            <th>Perfeito Tetra</th>
+                            <th>Perfeito Penta</th>
+                            <th>Perfeito Hexa</th>
+                            <th>Total Imperfeitos</th>
+                            <th>Total Imperfeitos Codificantes</th>
+                            <th>Total Imperfeitos Não Codificantes</th>
+                            <th>Imperfeitos Mono</th>
+                            <th>Imperfeitos Di</th>
+                            <th>Imperfeitos Tri</th>
+                            <th>Imperfeitos Tetra</th>
+                            <th>Imperfeitos Penta</th>
+                            <th>Imperfeitos Hexa</th>
+                          </tr>
+                      </tfoot>
+                      <tbody>
+                        {% for dataEstatistic in dataEstatistics %}
+                          <tr>
+                            <td>{{ dataEstatistic.cepa }}</td>
+                            <td>{{ dataEstatistic.totalSSR }}</td>
+                            <td>{{ dataEstatistic.totalCodificante }}</td>
+                            <td>{{ dataEstatistic.totalNaoCodificante }}</td>
+                            <td>{{ dataEstatistic.mono }}</td>
+                            <td>{{ dataEstatistic.di }}</td>
+                            <td>{{ dataEstatistic.tri }}</td>
+                            <td>{{ dataEstatistic.tetra }}</td>
+                            <td>{{ dataEstatistic.penta }}</td>
+                            <td>{{ dataEstatistic.hexa }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitos }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalPerfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.perfeitoMono }}</td>
+                            <td>{{ dataEstatistic.perfeitoDi }}</td>
+                            <td>{{ dataEstatistic.perfeitoTri }}</td>
+                            <td>{{ dataEstatistic.perfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.perfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.perfeitoHexa }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitos }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosCodificantes }}</td>
+                            <td>{{ dataEstatistic.totalImperfeitosNaoCodificantes }}</td>
+                            <td>{{ dataEstatistic.imperfeitoMono }}</td>
+                            <td>{{ dataEstatistic.imperfeitoDi }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTri }}</td>
+                            <td>{{ dataEstatistic.imperfeitoTetra }}</td>
+                            <td>{{ dataEstatistic.imperfeitoPenta }}</td>
+                            <td>{{ dataEstatistic.imperfeitoHexa }}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                  </table> -->
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endblock %}
+{% endblock %}

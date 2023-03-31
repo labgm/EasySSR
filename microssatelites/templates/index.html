@@ -1,0 +1,813 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{%block customcss%}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block pagecontent %}
+  {% block pageheading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+    </div>
+  {% endblock %}
+  {% block rows %}
+      <div class="row">
+          <div id="alert-box" class="col-lg-9 mb-4">
+              <div class="card bg-danger text-white shadow" style="display: none">
+                  <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="row">
+          <!-- Card Form -->
+          <div class="col-xl-12 col-md-12 mb-12">
+              <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                  <style>
+                    .table-item-center th, td{
+                      text-align: center;
+                    }
+                    .code {
+                      text-align: left;
+                    }
+                  </style>
+                  <table class="table table-item-center" style="display: None;" id="tableSteps">
+                    <thead>
+                      <tr>
+                        <th class="align-items-center">
+                          Etapa 01
+                        </th>
+                        <th>
+                          Etapa 02
+                        </th>
+                        <th>
+                          Etapa 03
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!--SPINNERS-->
+                        <style>
+                          .ball {
+                            width: 10px;
+                            height: 10px;
+                            margin: 10px auto;
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                            border-radius: 50px;
+                          }
+
+                          .ball:nth-child(1) {
+                            background: #ffffff;
+                            -webkit-animation: right 1s infinite ease-in-out;
+                            -moz-animation: right 1s infinite ease-in-out;
+                            animation: right 1s infinite ease-in-out;
+                          }
+                          .ball:nth-child(2) {
+                            -webkit-animation: left 1s infinite ease-in-out;
+                            -moz-animation: left 1s infinite ease-in-out;
+                            animation: left 1s infinite ease-in-out;
+                          }
+                          .ball:nth-child(3) {
+                            background: #ffffff;
+                            -webkit-animation: right 1s infinite ease-in-out;
+                            -moz-animation: right 1s infinite ease-in-out;
+                            animation: right 1s infinite ease-in-out;
+                            animation-delay: 0.1s;
+                          }
+
+                          .ball:nth-child(4) {
+                            -webkit-animation: left 1s infinite ease-in-out;
+                            -moz-animation: left 1s infinite ease-in-out;
+                            animation: left 1s infinite ease-in-out;
+                            animation-delay: 0.1s;
+                          }
+
+                          .ball:nth-child(5) {
+                            background: #ffffff;
+                            -webkit-animation: right 1s infinite ease-in-out;
+                            -moz-animation: right 1s infinite ease-in-out;
+                            animation: right 1s infinite ease-in-out;
+                            animation-delay: 0.2s;
+                          }
+                          .ball:nth-child(6) {
+                            -webkit-animation: left 1s infinite ease-in-out;
+                            -moz-animation: left 1s infinite ease-in-out;
+                            animation: left 1s infinite ease-in-out;
+                            animation-delay: 0.2s;
+                          }
+                          .ball:nth-child(7) {
+                            background: #ffffff;
+                            -webkit-animation: right 1s infinite ease-in-out;
+                            -moz-animation: right 1s infinite ease-in-out;
+                            animation: right 1s infinite ease-in-out;
+                            animation-delay: 0.3s;
+                          }
+
+                          .ball:nth-child(8) {
+                            -webkit-animation: left 1s infinite ease-in-out;
+                            -moz-animation: left 1s infinite ease-in-out;
+                            animation: left 1s infinite ease-in-out;
+                            animation-delay: 0.3s;
+                          }
+
+                          @-webkit-keyframes right {
+                            0% {
+                              -webkit-transform: translate(-15px);
+                            }
+                            50% {
+                              -webkit-transform: translate(15px);
+                            }
+                            100% {
+                              -webkit-transform: translate(-15px);
+                            }
+                          }
+
+                          @-webkit-keyframes left {
+                            0% {
+                              -webkit-transform: translate(15px);
+                            }
+                            50% {
+                              -webkit-transform: translate(-15px);
+                            }
+                            100% {
+                              -webkit-transform: translate(15px);
+                            }
+                          }
+
+                          @-moz-keyframes right {
+                            0% {
+                              -moz-transform: translate(-15px);
+                            }
+                            50% {
+                              -moz-transform: translate(15px);
+                            }
+                            100% {
+                              -moz-transform: translate(-15px);
+                            }
+                          }
+
+                          @-moz-keyframes left {
+                            0% {
+                              -moz-transform: translate(15px);
+                            }
+                            50% {
+                              -moz-transform: translate(-15px);
+                            }
+                            100% {
+                              -moz-transform: translate(15px);
+                            }
+                          }
+
+                          @keyframes right {
+                            0% {
+                              transform: translate(-15px);
+                            }
+                            50% {
+                              transform: translate(15px);
+                            }
+                            100% {
+                              transform: translate(-15px);
+                            }
+                          }
+
+                          @keyframes left {
+                            0% {
+                              transform: translate(15px);
+                            }
+                            50% {
+                              transform: translate(-15px);
+                            }
+                            100% {
+                              transform: translate(15px);
+                            }
+                          }
+                        </style>
+                        <td>
+                          <div id="spinner01" style="display: none">
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                            <div class="ball" style="background: #4e73df"></div>
+                          </div>
+                          <h1 id="check01" style="display: none"><i class="fa fa-check-circle text-primary" aria-hidden="true"></i></h1>
+                          {% comment %} <div class="spinner-grow text-primary" id="spinner01" style="display: none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div> {% endcomment %}
+                        </td>
+                        <td>
+                          <div id="spinner02" style="display: none">
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                              <div class="ball" style="background: #1cc88a"></div>
+                          </div>
+                          <h1 id="check02" style="display: none"><i class="fa fa-check-circle text-success" aria-hidden="true"></i></h1>
+                          {% comment %} <div class="spinner-grow text-success" id="spinner02" style="display: none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div> {% endcomment %}
+                        </td>
+                        <td>
+                          <div id="spinner03" style="display: none">
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                            <div class="ball" style="background: #36b9cc"></div>
+                          </div>
+                          <h1 id="check03" style="display: none"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></h1>
+                          {% comment %} <div class="spinner-grow text-info" id="spinner03" style="display: none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div> {% endcomment %}
+                        </td>
+                      </tr>
+                      <!--BARRAS-->
+                      <tr>
+                        <td>
+                          <div class="progress" id="progress_div_01">
+                            <div class="progress-bar bg-primary" id="progress_bar_01" width="50%" role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                         <td>
+                          <div class="progress" id="progress_div_02">
+                            <div class="progress-bar bg-success" id="progress_bar_02" role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                         <td>
+                          <div class="progress" id="progress_div_03">
+                            <div class="progress-bar bg-info" id="progress_bar_03" role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" id="areaCode" class="code table-active" style="display: none;">
+                          <samp class="text-black-50 code">Output processament</samp>
+                          <hr>
+                          <div class="code">
+                            <samp id="labelStatus"></samp>
+                          </div>
+                        </td>
+                      </tr>
+                      <!--STATUS-->
+                      
+                    </tbody>
+                  </table>
+                    <form class="user" enctype="multipart/form-data" id="upload-form" action="{% url 'index' %}" method="POST" onsubmit="spinner()" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <h1 class="h3 mb-0 text-gray-800">User Information</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.name.label }}</label>
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col mr-6">
+                            <div class="form-group">
+                                <label for="fileFasta" class="form-label">{{ form.email.label }}</label>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                      </div><br>
+                      <h1 class="h3 mb-0 text-gray-800">Input Files</h1>
+                      <hr class="sidebar-divider my-0"><br>
+                      <div class="row align-items-center">
+                          <div class="col mr-2">
+                              <!-- Input FASTA -->
+                              <div class="form-group">
+                                  <label for="fileFasta" class="form-label">{{ form.fileFasta.label }}</label><br>
+                                  <div class="file-drop-area col col-xl-6">
+                                    <span class="choose-file-button">Choose files</span>
+                                    <span class="file-message">or drag and drop files here</span>
+                                    {{ form.fileFasta }}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col mr-2">
+                              <!-- Input fileGBK -->
+                              <div class="form-group">
+                                  <label for="fileGBK" class="form-label">{{ form.fileGBK.label }}</label><br>
+                                  <div class="file-drop-area">
+                                    <span class="choose-file-button">Choose files</span>
+                                    <span class="file-message">or drag and drop files here</span>
+                                    {{ form.fileGBK }}
+                                  </div>
+                              </div>
+                          </div>
+                        </div><br>
+                        <hr class="sidebar-divider my-0"><br>
+                        <div class="row align-items-center">
+                          <div class="col mr-2">
+                            <div class="form-check">
+                              <input class="form-check-input" onclick="showParams()" type="radio" value="0" name="paramsRadio" id="paramsRadio" checked>
+                              <label class="form-check-label" for="paramsRadio">
+                                Default Params
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" onclick="showParams()" type="radio" value="1" name="paramsRadio" id="paramsRadio">
+                              <label class="form-check-label" for="paramsRadio">
+                                Custom Params
+                              </label>
+                            </div>
+                          </div>
+                        </div><br>
+                        <div id="custom_params" style="display: none"> 
+                          <!-- Mensagem de Informação -->
+                          <div class="toast-container position-absolute p-3 top-50 start-0 translate-middle-y" style="z-index: 11">
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                              <div class="toast-header">
+                                <strong class="me-auto">A) Imperfection Limit/Repeat Unit (mismatches allowed)</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                              </div>
+                              <div class="toast-body">
+                                Imperfection Limit of a repeat size (Ex:tri,penta) is the number of point mutations (substitutions and indels) that can be allowed in a repeat unit (word) so that it can be considered as a match."
+                                For example, 2 words ATGC and ATGG can be considered as matching repeat units if the imperfection limit (mismatches allowed) for tetranucleotide repeats is set as 1 or more.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(1)"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">A) Imperfection Limit/Repeat Unit (mismatches allowed)</span>
+                              <input type="text" name="impMono" placeholder="Mono" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impDi" placeholder="Di" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impTri" placeholder="Tri" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impTetra" placeholder="Tetra" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPenta" placeholder="Penta" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impHexa" placeholder="Hexa" aria-label="mismatchesmono" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(2)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">B) Imperfection Percentage</span>
+                              <input type="text" name="impPerMono" placeholder="Mono" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPerDi" placeholder="Di" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPerTri" placeholder="Tri" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPerTetra" placeholder="Tetra" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPerPenta" placeholder="Penta" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="impPerHexa" placeholder="Hexa" aria-label="mismatchesmono" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(3)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">C) Minimum Repeat Number</span>
+                              <input type="text" name="minRepMono" placeholder="Mono" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="minRepDi" placeholder="Di" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="minRepTri" placeholder="Tri" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="minRepTetra" placeholder="Tetra" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="minRepPenta" placeholder="Penta" aria-label="mismatchesmono" class="form-control">
+                              <input type="text" name="minRepHexa" placeholder="Hexa" aria-label="mismatchesmono" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(4)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">D) Size of Flanking Sequences</span>
+                              <input type="text" name="sizeFlan" placeholder="Size of the SSR Flanking Sequences to be extracted" aria-label="mismatchesmono" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(5)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">E) Generate Alignment</span>
+                              <div class="form-control form-check form-switch">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" name="genAlin" type="checkbox" role="switch" id="genAlin">
+                                <label class="form-check-label" for="genAlin">Yes</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(6)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">F) Generate Text output</span>
+                              <div class="form-control">
+                              <div class="form-check form-switch">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" name="genText" checked disabled type="checkbox" role="switch" id="genText">
+                                <label class="form-check-label" for="genText">Yes</label>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(7)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">G) Identify Coding Regions</span>
+                              <div class="form-control form-check form-switch">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" name="idCod" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Yes</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(8)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">H) dMAX Compound SSR</span>
+                              <div class="form-control">
+                                <input type="range" class="form-range" value="0" min="-1" max="100" name="maxComp" id="customRange">
+                                <br>
+                              </div>
+                              <span class="form-control" id="rangeValue"></span>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(9)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">I) Standardization Level</span>
+                              <input type="text" placeholder="0=N, 1=lvl 1, 2= lvl 2, 3=lvl 3, F = full" value=3 name="standLevel" aria-label="mismatchesmono" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="input-group">
+                              <button type="button" class="btn btn-primary" onClick="showAlert(10)" id="liveToastBtn1"><i class="fa fa-info-circle"></i></button>
+                              <span class="input-group-text">J) SSR types to extract</span>
+                              <div class="form-control form-check form-switch">
+                                <input type="range" class="form-range" value="0" min="0" max="6" name="ssrType" id="customRange2">
+                                <br>
+                              </div>
+                              <span class="form-control" id="rangeValue2"></span>
+                            </div>
+                          </div>
+                          <br>
+                          <hr class="sidebar-divider my-0"><br>
+                        </div>
+                        <div class="row align-items-center">
+                          <!-- Spinner -->
+                          <br><br><br>
+                          <div class="form-group" id="spinner" style="display: none">
+                            <button class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="button" disabled>
+                              <span class="spinner-grow spinner-grow-sm btn-primary" role="status" aria-hidden="true"></span>
+                              Loading...
+                            </button>
+                          </div>
+                          <div class="form-group" id="submit">
+                            <input class="col-xl-2 col-md-2 mb-1 btn btn-primary btn-user btn-block" type="submit" value="Upload"/>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                  <span id="labelbar"></span>
+                  <div class="progress mr-2" id="progress_div" style="display: none">
+                    <div class="progress-bar bg-info" id="progress_bar"  role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div>
+                    <!-- BOTÃO DE TESTE -->
+                    {% comment %} <div>
+                      <button type="button" class="btn btn-primary" id="upload-btn">Teste Barra</button>
+                    </div>  {% endcomment %}
+                  </div>
+              </div>
+              <!-- <button id="upload-btn">Upload</button> -->
+          </div>
+      </div>
+  {% endblock %}
+{% endblock %}
+
+{% block customjs %}
+<script>
+  function showParams(){
+    var valor = document.querySelector('input[name="paramsRadio"]:checked').value;
+    if(valor == 1){
+         $("#custom_params").show();
+     } else {
+         $("#custom_params").hide();
+     };
+    {% comment %} $("#custom_params").toggle("slow"); {% endcomment %}
+  }
+
+  document.querySelectorAll('[input="hide"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var target = document.querySelector(this.dataset.target);
+      if (target.style.display === 'none') {
+        target.querySelectorAll('[required]').forEach(function(input) {
+          input.removeAttribute('required');
+        });
+      } else {
+        target.querySelectorAll('[required]').forEach(function(input) {
+          input.setAttribute('required', '');
+        });
+      }
+    });
+  });
+
+  const range = document.getElementById('customRange');
+  const rangeValue = document.getElementById('rangeValue');
+
+  range.addEventListener('input', () => {
+    rangeValue.textContent = range.value;
+  });
+
+  const range2 = document.getElementById('customRange2');
+  const rangeValue2 = document.getElementById('rangeValue2');
+
+  range2.addEventListener('input', () => {
+    rangeValue2.textContent = range2.value;
+  });
+</script>
+<script>
+  $(document).on('change', '.file-input', function() {
+    var filesCount = $(this)[0].files.length;
+    var files = $(this)[0].files;
+    const namesfiles = [];
+
+    var textbox = $(this).prev();
+
+    if (filesCount === 1) {
+      var fileName = $(this).val().split('\\').pop();
+      textbox.text(fileName);
+    } else {
+      textbox.text(filesCount + ' files selected');
+      for (var i = 0; i < filesCount; i++) {
+        // var fileName = $(this).val().split('\\').pop();
+
+        // obtém o item
+        file = files.item(i);
+        namesfiles[i] = file.name;
+        
+      }
+    }
+  });
+
+  
+  function upload___(){
+    var fileInput = document.getElementById('id_fileFasta');
+    var files = fileInput.files;
+    var progress = document.getElementById('progress');
+    var label = document.getElementById('label');
+
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+
+        var formData = new FormData();
+        formData.append('file', file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '');
+
+        // var progressContainer = document.querySelector('#progress-template').content.cloneNode(true);
+        // progressContainer.querySelector('.filename').textContent = file.name;
+        // var progress = progressContainer.querySelector('progress');
+
+        xhr.upload.addEventListener('progress', function(event) {
+          progress.value = event.loaded / event.total * 100;
+        });
+
+        xhr.onloadend = function() {
+        if (xhr.status === 200) {
+            console.log('File uploaded successfully.');
+        } else {
+            console.error('File upload failed.');
+        }
+        };
+
+        xhr.send(formData);
+        // document.body.appendChild(progressContainer);
+    }
+  }
+
+  function upload(){
+    var fileInput = document.getElementById('id_fileFasta');
+    var fileImput2 = document.getElementById('id_fileGBK');
+    var files = fileInput.files;
+    var files2 = fileImput2.files;
+    var formData = new FormData();
+    
+    for (i=0 ; i < files.length ; i++){
+      var file = files[i];
+      formData.append('file'+i, files.item(i));
+      formData.append('file2'+i, files2.item(i));
+      console.log(formData);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '');
+      xhr.upload.addEventListener("progress", function(ev){
+        if (ev.lengthComputable){
+          var percentage = (ev.loaded/ev.total * 100|0);
+          $("#progress_div").show();
+          document.getElementById('progress_bar').style["width"]=""+percentage+"%";
+          document.getElementById('progress_bar').innerHTML=""+percentage+"%";
+          document.getElementById('labelbar').innerHTML="Uploaded: "+parseInt(ev.loaded/1000000)+"/"+parseInt(ev.total/1000000)+" MB";
+          console.log('Uploaded: ' + (percentage) +'%');
+        }
+      },false);
+      xhr.send(formData);
+    }
+  }
+
+  document.getElementById('upload-btn').addEventListener('click', function(){
+    $("#upload-form").toggle("fast");
+    $("#tableSteps").toggle("fast");
+    $("#areaCode").toggle("fast");
+    $("#spinner01").toggle("slow");
+    $("#spinner02").toggle("slow");
+    $("#spinner03").toggle("slow");
+
+
+    {% comment %} getProcessingStatus(); {% endcomment %}
+  });
+
+</script>
+<script type="text/javascript">
+  function spinner(){
+    $("#spinner").show();
+    $("#submit").hide();
+    $("#upload-form").toggle("fast");
+    $("#tableSteps").toggle("fast");
+    $("#areaCode").toggle("fast");
+    //Atualiza as informações do Upload
+    //upload();
+    // Iniciar a obtenção do status do processamento e upload
+    getProcessingStatus();
+    getFileUploadProcessingStatus();
+  }
+
+  function exibir_ocultar(){
+    var valor = $("#params").val();
+    if(valor == 1){
+         $("#custom_params").show();
+         $("#paramDefault").hide();
+     } else {
+         $("#custom_params").hide();
+         $("#paramDefault").show();
+     };
+
+     // Resultado em tempo Real do Range
+     let $range2 = document.querySelector('#dMaxRangeInput'),
+         $value2 = document.querySelector('#dMaxRangeValue'),
+         $radio = document.querySelector('input[name="generate_Alignment"]:checked').value;
+         alert(radio);
+
+     $radio.addEventListener('input', function(){
+       alert(this.value);
+     });
+
+     $range2.addEventListener('input', function() {
+         $value2.textContent = this.value;
+     });
+  }
+
+  // Função para atualizar a barra de progresso do processamento
+  function updateProgress(statusProcessament, step01, step02, step03, percentage) {
+    var progress_bar_03 = document.getElementById('progress_bar_03');
+    var labelStatus = document.getElementById('labelStatus');
+    var labelStep = document.getElementById('labelStep');
+
+    if(step01 == false){
+       $("#spinner01").show();
+       $("#areaCode").show();
+    }else if(step01 == true){
+        $("#spinner01").hide();
+        $("#check01").show();
+        progress_bar_01.style["width"]=""+100+"%";
+        progress_bar_01.innerHTML=""+100+"%";
+        if(step02 == false){
+          $("#spinner02").show();
+        }else if(step02 == true){
+            $("#spinner02").hide();
+            $("#check02").show();
+            progress_bar_02.style["width"]=""+100+"%";
+            progress_bar_02.innerHTML=""+100+"%";
+            if(step03 == false){
+              $("#spinner03").show();
+            }else if(step03 == true){
+              
+            }
+        }
+    }
+    labelStatus.innerHTML=statusProcessament;
+    progress_bar_03.style["width"]=""+percentage+"%";
+    progress_bar_03.innerHTML=""+percentage+"%";
+  }
+
+  // Função para obter o status do processamento do back-end via ajax
+  function getProcessingStatus() {
+    $.ajax({
+      type: "GET",
+      url: "/get_processing_status/",
+      success: function(data){
+        updateProgress(data.statusProcessament, data.step01, data.step02, data.step03, data.percent03);
+        if (data.step03 == false) {
+          setTimeout(getProcessingStatus, 1000);
+        }
+      }
+    });
+  }
+
+  function fileUploadProgress(file, filePercent) {
+    $("#progress_div").show();
+    document.getElementById('progress_bar').style["width"]=""+filePercent+"%";
+    document.getElementById('progress_bar').innerHTML=""+filePercent+"%";
+    document.getElementById('labelbar').innerHTML="File: "+file;
+  }
+
+  function getFileUploadProcessingStatus(){
+    $.ajax({
+      type: "GET",
+      url: "/get_uploaded_file/",
+      success: function(data){
+        fileUploadProgress(data.file, data.filePercent);
+        setTimeout(getFileUploadProcessingStatus, 1000);
+      }
+    });
+  }
+
+  function showAlert(btntoast){
+    var toast = document.getElementById('liveToast');
+    var toastHeader = toast.querySelector(".me-auto");
+    var toastBody = toast.querySelector(".toast-body");
+    
+    switch (btntoast) {
+      case 1:
+        toastHeader.innerHTML = 'A) Imperfection Limit/Repeat Unit (mismatches allowed)';
+        toastBody.innerHTML = 'Imperfection Limit of a repeat size (Ex:tri,penta) is the number of point mutations (substitutions and indels) that can be allowed in a repeat unit (word) so that it can be considered as a match. For example, 2 words ATGC and ATGG can be considered as matching repeat units if the imperfection limit (mismatches allowed) for tetranucleotide repeats is set as 1 or more.';
+        break;
+      case 2:
+        toastHeader.innerHTML = 'B) Imperfection Percentage'
+        toastBody.innerHTML = 'Imperfection percentage of a microsatellite repeat tract is the percentage of mismatches in the entire repeat tract. Imperfection Percentage can be calculated as follows:\
+	                            Imperfection  = (No. of imperfections in entire tract / Total No. of Bases in tract) * 100)';
+        break;
+      case 3:
+        toastHeader.innerHTML = 'C) Minimum Repeat Number'
+        toastBody.innerHTML = 'Minimum Repeat Number of a repeat tract is the number of repeat units in a tract so that it can be considered as a valid microsatellite tract.\
+                              For example, if Mininum Repeat Number for mono is set to 15, means that only the mononucleotide repeat tracts that contain at least 15 nucleotides (total lenght) will be considered as a valid tract. Tracts with less than 15 won\'t be considered.';
+        break;
+      case 4:
+        toastHeader.innerHTML = 'D) Size of Flanking Sequences'
+        toastBody.innerHTML = 'The program will also extract the sequence located adjacent to each SSR identified in both left and right sides. Flanking regions are important mainly because knowing their sequences enables researchers to isolate the SSR using polymerase chain reaction, or PCR, amplification.';
+        break;
+      case 5:
+        toastHeader.innerHTML = 'E) Generate Alignment'
+        toastBody.innerHTML = 'Alignment will help identifing imperfections.';
+        break;
+      case 6:
+        toastHeader.innerHTML = 'F) Generate Text output'
+        toastBody.innerHTML = 'Imex has their outputs in TXT and HTML. On "Yes" to generate both and off to generate HTML only (Not Adviseable, if off fastSSR might not work.';
+        break;
+      case 7:
+        toastHeader.innerHTML = 'G) Identify Coding Regions'
+        toastBody.innerHTML = 'Do you wish to Identify Coding/No Coding Regions?';
+        break;
+      case 8:
+        toastHeader.innerHTML = 'H) dMAX Compound SSR'
+        toastBody.innerHTML = 'dMAX : Maximum distance between SSRs allowed to consider as a cSSR\
+                              dMAX is the maximum distance (threshold) between any two SSRs to become a potential Compound SSR. IMEx considers 2 or more SSRs as a single compound SSR if the distance between any two SSRs is less than or equal to the dMAX value set by the user.\
+                              (-1=Do not extract compound SSR; 0-100 dMAX)';
+        break;
+      case 9:
+        toastHeader.innerHTML = 'I) Standardization Level'
+        toastBody.innerHTML = 'The Microsatellites and Compound Microsatellites in IMEx are standardized according to the following Levels. Higher the standardization, more sensitivity and different patterns will be considered the same SSR.\
+                              In L0 (level 0) standardization each pattern is unique. In L1 it is considered the circular permutation of the nucleotides in the repeat. In L2, more patterns become equivalent due to its reverse complementation followed by circular permutation. Furthermore, at L3 level in addition to all the SSRs at level 2, more motifs are considered equivalent because of complementation and circular permutation. In the full standardization mode, plenty SSR are considered equivalent as a consequence of motif reversal followed by its circular permutation.\
+                              (0=N, 1=lvl 1, 2= lvl 2, 3=lvl 3, F = full)")';
+        break;
+      case 10:
+        toastHeader.innerHTML = 'J) SSR types to extract'
+        toastBody.innerHTML = '0=Todos, 1=Only mono, 2=Only di ... 6= Only hexa. Advanced users can also search for specific SSR motifs or patterns.';
+        break;
+      default:
+        console.log(`Sorry, we are out of ${btntoast}.`);
+    }
+    toast.classList.remove('hide');
+    toast.classList.add('show');
+    
+
+
+
+    {% comment %} if (toastTrigger) {
+      toastTrigger.addEventListener('click', function () {
+        toastLiveExample.classList.remove('hide');
+        toastLiveExample.classList.add('show');
+        setTimeout(function() {
+          toastLiveExample.classList.remove('show');
+        }, 3000); 
+        
+      })
+    } {% endcomment %}
+  }
+  
+
+</script>
+{% endblock %}
