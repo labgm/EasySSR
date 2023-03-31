@@ -3,14 +3,15 @@
 ### Microsatellites
 Microsatellites, also known as Simple Sequence Repeats (SSRs) or Short Tandem Repeats (STRs), are polymorphic DNA regions with tandem repetitions of a nucleotide motif ranging 1 - 6 bp, also called mononucleotide, di-, tri-, tetra-, penta- and hexanucleotide repeats (Pinheiro 2022). They can be categorized into perfect, imperfect and compound, and are found in both coding and non-coding regions in eukaryotes, prokaryotes and viruses (Mudunuri 2007, Beier 2017). The SSRs have various clinical implications and a broad range of applications in many fields, such as conservation and evolutionary studies, comparative genomics, molecular biology, biotechnology, oncology, and forensics (Laskar 2022, Pinheiro 2022).
 
-## How to use the web server: Quick Input Tutorial
+## How to use the web server: Quick Tutorial
 
 ### Input
 Write a ProjectName, a email, input your fasta files. Optional: input your genbank files (must have the same name as correspondent fasta files).
 Use the default parameters. Click in Upload. 
+The parameters default are: - Minimum Repeat Number: Mono-12, Di-6, Tri-4, Tetra-3, Penta-3, and Hexa-3; - Imperfection maximum: 10%.
 ![image](https://user-images.githubusercontent.com/101668229/228958608-d12e8ebb-fb25-4b63-8334-b6449bb9fabd.png)
 ### Execution
-Go have coffee while watching some tik toks while waiting for your results.
+You might go watch some tiktoks and have coffee while waiting for your results.
 ![image](https://user-images.githubusercontent.com/101668229/228959832-49d9da2b-bf73-4040-8c41-31aca8df7312.png)
 ### Outputs 
 
