@@ -277,7 +277,24 @@
                       
                       <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">User Information</h1>
-                        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Sample Dataset</a>
+                        {% comment %} <a class="dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                        </a> {% endcomment %}
+                        <a class="dropdown d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown"><i class="fas fa-download fa-sm text-white-50"></i> Download Sample Dataset</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><h6 class="dropdown-header">Choose a Dataset</h6></li>
+                            <li>
+                              <a href="https://github.com/engbiopct/EasySSR/raw/main/sample_datasets/Dataset%201%20-%20Misa%20-%20Oficial.zip" class="dropdown-item">
+                                <i class="fa fa-file" aria-hidden="true"></i>&nbsp;Dataset 1 - MISA
+                              </a>
+                            </li>
+                            {% comment %} <li><button class="dropdown-item"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Dataset 1 - MISA</button></li> {% endcomment %}
+                            <li>
+                              <a href="https://github.com/engbiopct/EasySSR/raw/main/sample_datasets/Dataset%202%20-%20IMEX%20-%20oficial.zip" class="dropdown-item">
+                                <i class="fa fa-file" aria-hidden="true"></i>&nbsp;Dataset 2 - IMEx
+                              </a>
+                            </li>
+                        </ul>
                       </div>
                       <hr class="sidebar-divider my-0"><br>
                       <div class="row align-items-center">
