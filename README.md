@@ -1,4 +1,8 @@
 # EasySSR: an User-Friendly web application for large-scale batch microsatellite prediction and samples comparison
+Available at: https://computationalbiology.ufpa.br/easyssr/
+
+Tutorials and guides: https://github.com/engbiopct/EasySSR/
+
 ## Introduction
 ### Microsatellites
 Microsatellites, also known as Simple Sequence Repeats (SSRs) or Short Tandem Repeats (STRs), are polymorphic DNA regions with tandem repetitions of a nucleotide motif ranging 1 - 6 bp, also called mononucleotide, di-, tri-, tetra-, penta- and hexanucleotide repeats (Pinheiro 2022). They can be categorized into perfect, imperfect and compound, and are found in both coding and non-coding regions in eukaryotes, prokaryotes and viruses (Mudunuri 2007, Beier 2017). The SSRs have various clinical implications and a broad range of applications in many fields, such as conservation and evolutionary studies, comparative genomics, molecular biology, biotechnology, oncology, and forensics (Laskar 2022, Pinheiro 2022).
