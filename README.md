@@ -6,13 +6,16 @@ Microsatellites, also known as Simple Sequence Repeats (SSRs) or Short Tandem Re
 ## How to use the web server: Quick Tutorial
 
 ### Input
-Write a ProjectName, a email, input your fasta files. Optional: input your genbank files (must have the same name as correspondent fasta files).
-Use the default parameters. Click in Upload. 
+Write a ProjectName and input your fasta files. Optional: email, genbank files (must have the same name as correspondent fasta files).
+Use the default parameters. Click in the Upload & Run button. 
 The parameters default are: - Minimum Repeat Number: Mono-12, Di-6, Tri-4, Tetra-3, Penta-3, and Hexa-3; - Imperfection maximum: 10%.
-![image](https://user-images.githubusercontent.com/101668229/228958608-d12e8ebb-fb25-4b63-8334-b6449bb9fabd.png)
+-Two sample datasets are available for download.
+![image](https://user-images.githubusercontent.com/101668229/229519972-4c7a0055-d9a3-4371-b43e-a171337573cb.png)
+
 ### Execution
-You might go watch some tiktoks and have coffee while waiting for your results.
-![image](https://user-images.githubusercontent.com/101668229/228959832-49d9da2b-bf73-4040-8c41-31aca8df7312.png)
+You are free to invest your time in something useful while waiting for your results.
+![image](https://user-images.githubusercontent.com/101668229/229521162-c8d7f94a-dad2-40e6-9cba-3e1639e8f7b1.png)
+
 ### Outputs 
 
 Done! 
@@ -20,27 +23,30 @@ Done!
 - Feel free to interact with the charts, or download them in the format PNG or JPEG.
 - Feel free to analyze the tables or download them in csv, excel or pdf format.
 - Feel free to save the webpage by right-click+save as: Webpage, Complete (*. htm;*html) 
-![image](https://user-images.githubusercontent.com/101668229/228960135-5e3a4b98-c687-4724-ad0a-faa44d60469e.png)
-![image](https://user-images.githubusercontent.com/101668229/228961192-a507d3fc-94fc-494c-980e-36d2de5c6b89.png)
-![image](https://user-images.githubusercontent.com/101668229/228961277-e187e122-15d0-4fa4-9b64-733f2af105c5.png)
-![image](https://user-images.githubusercontent.com/101668229/228961334-fc940c09-234a-42f6-88c7-cef5d7c62259.png)
-![image](https://user-images.githubusercontent.com/101668229/228961381-9bbd58b9-ba1c-466a-9859-4f1d95bc3b7b.png)
+![image](https://user-images.githubusercontent.com/101668229/229521267-64a468ee-fbda-48dc-905d-fa4d9ab57d97.png)
+![image](https://user-images.githubusercontent.com/101668229/229521478-5c83af5b-5ea6-43f2-a6d5-9633c588750e.png)
+![image](https://user-images.githubusercontent.com/101668229/229521588-55e40d8b-223b-4efe-839f-f4d7d45ce55a.png)
+![image](https://user-images.githubusercontent.com/101668229/229522232-2d98f768-dc67-454a-a19d-0d4c002dd738.png)
+![image](https://user-images.githubusercontent.com/101668229/229522294-ec5e04c7-97c2-45cf-a9af-2095949f16fe.png)
+
 
 
 ## How to use the web server: Detailed Input tutorial
 ### User Information
-![image](https://user-images.githubusercontent.com/101668229/228953850-6a008dee-f7df-4184-a8ec-e5f5e0235260.png)
-Input:
-- ProjectName: It can be any word, might be your name, or a project name (e.g. test1) 
-- Email: Write a valid email you have acess. Don't worry, easySSR won't send spam or any marketing for you.
+![image](https://user-images.githubusercontent.com/101668229/229523376-b9de34a2-2a25-4510-b841-bc978b94432e.png)
 
-E.g: someone with 'Alves' project name and who has an email (email@gmail.com)
-![image](https://user-images.githubusercontent.com/101668229/228958251-5de0794e-8215-4c4b-a2cb-8c23a79b212b.png)
+
+Input:
+- Project Name (Required): It can be any word in order to create a identifier for your project (e.g. test1) 
+- Email (Optional):  Write a valid email you have acess. Don't worry, easySSR won't send spam or any marketing for you.
+
+E.g: someone with 'Alves' project name.
+![image](https://user-images.githubusercontent.com/101668229/229522859-4fac786f-18cb-4998-af8e-77bd5d586630.png)
 
 
 ### Input files
 
-![image](https://user-images.githubusercontent.com/101668229/228955252-8f236ac2-3477-4b39-856c-ce5ad17e05ef.png)
+![image](https://user-images.githubusercontent.com/101668229/229523482-72c1866f-664f-498d-8f64-183bb1dc0b10.png)
 
 - In input files, you should upload your fasta files by clicking in the "choose files" button. 
 - EasySSR accepts as fasta input files with the filename extensions: ( '.fasta' | '.fna' | '.fa' | '.ffn' )
@@ -49,28 +55,35 @@ E.g: someone with 'Alves' project name and who has an email (email@gmail.com)
   - Use intuitive names, because the input name will be the names to appear in the output graphs and tables.
 - EasySSR works with draft genomes and complete genomes.
 - EasySSR can run with multifasta files, but it will identify each fasta file as a unique genome. 
+- Feel free to download one of the sample datasets and run a test! 
+![image](https://user-images.githubusercontent.com/101668229/229524003-4f45b1d4-2224-46d9-a3d7-81871d131f2c.png)
+ 
 
-If you choose to analyze coding/non coding regions, a genbank annotation file will be solicited.
+**If you choose to analyze coding/non coding regions, a genbank annotation file will be solicited.
 
-- EasySSR accepts as genbank input files with the filename extensions:  ('.gbk', '.gb', '.gbff)
-- Empty genbank files or formats that are not the ones accepted will result in error.
+  - EasySSR accepts as genbank input files with the filename extensions:  ('.gbk', '.gb', '.gbff)
+  - Empty genbank files or formats that are not the ones accepted will result in error.
 
 
 ### Default Parameters
 The default parameters are based on Pinheiro (2022): 
-  - Repeat Number: 1-12, 2-6, 3-4, 4-3, 5-3, and 6-3
-  - Imperfection % (p%): 1-10%, 2-10%, 3-10%, 4-10%, 5-10%, 6-10%
   - Mismatch in Pattern: 1-1; 2-1; 3-1; 4-2; 5-2; 6-2
+  - Imperfection % (p%): 1-10%, 2-10%, 3-10%, 4-10%, 5-10%, 6-10%
+  - Repeat Number: 1-12, 2-6, 3-4, 4-3, 5-3, and 6-3
+  - Flanking Sequences: 15 bp; 
+  - Generate Alignment, Text Output and Identify Coding regions: Yes.
   - Maximum distance for compound SSR: 100 bp;
   - Standardization Level: Level 3; 
-  - Flanking Sequences: 15 bp; 
-  - Extract all SSR types, 
-  - Generate Alignment and Text Output: Yes.
+  - SSR types to extract: 0 (All types).
 
 If a user desires to run the default parameters but change something, they should use the custom parameters as done in the following figure.
-![image](https://user-images.githubusercontent.com/101668229/228964065-60918c6b-191a-40ee-8eb5-e729e2110a0e.png)
+![image](https://user-images.githubusercontent.com/101668229/229525007-3c6d2d0a-c6cc-4e9d-bf46-0ec2c1fbebcb.png)
 
 ### Custom parameters 
+
+A guide help text can be acessed for each parameter by clicking in the (i) button.
+![image](https://user-images.githubusercontent.com/101668229/229525443-cd5b35c8-7fce-4784-8229-2b15033b9203.png)
+
 
 - A) Imperfection Limit/Repeat Unit (mismatches allowed):
   - Imperfection Limit of a repeat size (mono, di, tri, tetra, penta, hexa) is the number of point mutations (substitutions and indels) that can be allowed in a repeat unit (e.g. a trinucleotide [ATC]) so that it can be considered as a match. For example, 2 words ATCATC and ATCATG can be considered as matching repeat units if the imperfection limit (mismatches allowed) for tetranucleotide repeats is set as 1 or more. 
@@ -113,7 +126,8 @@ If a user desires to run the default parameters but change something, they shoul
 
 ## How to run in Misa-mode
 - Put all Mismatches and imperfection parameters to 0, as the following figure.
-- ![image](https://user-images.githubusercontent.com/101668229/228966132-8ff74600-ec6d-4ee2-88a1-2c5dce758d06.png)
+- In Misa-web the default parameters are 1-10, 2-6, 3-5, 4-5, 5-5, 6-5, with dMAX-100 and no coding regions are identified.
+![image](https://user-images.githubusercontent.com/101668229/229525783-45103a2c-f547-481e-9e97-6fbbeca2f3f8.png)
 
 
 # FAQ
