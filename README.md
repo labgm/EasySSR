@@ -31,12 +31,6 @@ Done!
 ![Figure 5A and 5B](https://github.com/engbiopct/EasySSR/assets/101668229/1f7586e6-ef2a-4fb9-97a5-7239ff71e4f1)
 ![Figure 6A and 6B](https://github.com/engbiopct/EasySSR/assets/101668229/717c3fa8-5c5f-4892-8eb6-b6ae52118a9d)
 
-![image](https://user-images.githubusercontent.com/101668229/229521267-64a468ee-fbda-48dc-905d-fa4d9ab57d97.png)
-![image](https://user-images.githubusercontent.com/101668229/229521478-5c83af5b-5ea6-43f2-a6d5-9633c588750e.png)
-![image](https://user-images.githubusercontent.com/101668229/229521588-55e40d8b-223b-4efe-839f-f4d7d45ce55a.png)
-![image](https://user-images.githubusercontent.com/101668229/229522232-2d98f768-dc67-454a-a19d-0d4c002dd738.png)
-![image](https://user-images.githubusercontent.com/101668229/229522294-ec5e04c7-97c2-45cf-a9af-2095949f16fe.png)
-
 
 
 ## How to use the web server: Detailed Input tutorial
