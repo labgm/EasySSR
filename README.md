@@ -14,7 +14,7 @@ Write a ProjectName and input your fasta files. Optional: email, genbank files (
 Use the default parameters. Click in the Upload & Run button. 
 The parameters default are: - Minimum Repeat Number: Mono-12, Di-6, Tri-4, Tetra-3, Penta-3, and Hexa-3; - Imperfection maximum: 10%.
 -Two sample datasets are available for download.
-![image](https://user-images.githubusercontent.com/101668229/229519972-4c7a0055-d9a3-4371-b43e-a171337573cb.png)
+![computationalbiology ufpa br_easyssr_ (3)](https://github.com/engbiopct/EasySSR/assets/101668229/b7953dc3-0ebf-4806-9dd1-39acc013f678)
 
 ### Execution
 You are free to invest your time in something useful while waiting for your results.
