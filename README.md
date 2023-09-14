@@ -1,5 +1,9 @@
 # EasySSR: an User-Friendly web application for large-scale batch microsatellite prediction and samples comparison
-Available at: https://computationalbiology.ufpa.br/easyssr/
+
+Read the Paper: 
+https://www.frontiersin.org/articles/10.3389/fgene.2023.1228552/full
+
+Web tool available at: https://computationalbiology.ufpa.br/easyssr/
 
 Tutorials and guides: https://github.com/engbiopct/EasySSR/
 
